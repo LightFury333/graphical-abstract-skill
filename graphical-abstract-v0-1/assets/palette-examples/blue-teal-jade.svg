@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1605 980" width="1605" height="980">
+  <defs>
+    <linearGradient id="page-wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#F3F5F8" />
+      <stop offset="0.55" stop-color="#F4F8F9" />
+      <stop offset="1" stop-color="#F9FBFB" />
+    </linearGradient>
+    <linearGradient id="left-wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DFE5EB" />
+      <stop offset="1" stop-color="#E6ECF0" />
+    </linearGradient>
+    <linearGradient id="mid-wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2EAEE" />
+      <stop offset="1" stop-color="#EAF1F2" />
+    </linearGradient>
+    <linearGradient id="right-wash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E8F0F2" />
+      <stop offset="1" stop-color="#E8F1EF" />
+    </linearGradient>
+    <linearGradient id="header-left" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#244A78" />
+      <stop offset="1" stop-color="#235C7C" />
+    </linearGradient>
+    <linearGradient id="header-middle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#235E7C" />
+      <stop offset="1" stop-color="#236E7C" />
+    </linearGradient>
+    <linearGradient id="header-right" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#236F7B" />
+      <stop offset="0.50" stop-color="#247371" />
+      <stop offset="1" stop-color="#267667" />
+    </linearGradient>
+    <linearGradient id="conclusion-wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#DCE2E9" />
+      <stop offset="0.53" stop-color="#E0EBED" />
+      <stop offset="1" stop-color="#E3EDEB" />
+    </linearGradient>
+    <linearGradient id="caution-wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E8ECF1" />
+      <stop offset="0.52" stop-color="#E6EEF0" />
+      <stop offset="1" stop-color="#DCE9E7" />
+    </linearGradient>
+    <linearGradient id="footer-wash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#EBEFF3" />
+      <stop offset="1" stop-color="#F0F5F4" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.46" />
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.23" />
+    </linearGradient>
+    <filter id="header-shadow" x="-5%" y="-10%" width="110%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#184C5A" flood-opacity="0.14" />
+    </filter>
+  </defs>
+  <rect id="page" x="0" y="0" width="1605" height="980" fill="url(#page-wash)" />
+  <rect id="panel-left" x="22" y="120" width="417" height="530" rx="27" fill="url(#left-wash)" />
+  <rect id="surface-header-left" x="22" y="90" width="417" height="67" rx="25" fill="url(#header-left)" stroke="#FFFFFF" stroke-width="1.5" filter="url(#header-shadow)" />
+  <rect id="pill-left" x="35" y="567" width="388" height="61" rx="16" fill="url(#glass)" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="panel-middle" x="499" y="120" width="348" height="530" rx="27" fill="url(#mid-wash)" />
+  <rect id="surface-header-middle" x="499" y="90" width="348" height="67" rx="25" fill="url(#header-middle)" stroke="#FFFFFF" stroke-width="1.5" filter="url(#header-shadow)" />
+  <rect id="pill-middle" x="510" y="372" width="325" height="50" rx="16" fill="url(#glass)" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="card-middle-left" x="510" y="490" width="155" height="133" rx="16" fill="url(#glass)" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="card-middle-right" x="677" y="490" width="158" height="133" rx="16" fill="url(#glass)" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="panel-right" x="899" y="120" width="685" height="530" rx="27" fill="url(#right-wash)" />
+  <rect id="surface-header-right" x="899" y="90" width="685" height="67" rx="25" fill="url(#header-right)" stroke="#FFFFFF" stroke-width="1.5" filter="url(#header-shadow)" />
+  <rect id="row-heading" x="909" y="229" width="666" height="123" rx="19" fill="url(#footer-wash)" fill-opacity="0.58" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="row-a" x="909" y="366" width="666" height="109" rx="17" fill="url(#glass)" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="row-b" x="909" y="487" width="666" height="112" rx="17" fill="url(#glass)" stroke="#FFFFFF" stroke-width="1.2" />
+  <rect id="summary-band" x="22" y="666" width="1562" height="112" rx="24" fill="url(#conclusion-wash)" />
+  <rect id="note-band" x="22" y="790" width="1562" height="107" rx="24" fill="url(#caution-wash)" />
+  <rect id="footer-band" x="22" y="911" width="1562" height="46" rx="21" fill="url(#footer-wash)" />
+</svg>

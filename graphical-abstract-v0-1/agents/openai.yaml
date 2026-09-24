@@ -1,0 +1,4 @@
+interface:
+  display_name: "Graphical Abstract v 0.1"
+  short_description: "Scientific graphical abstracts with EHJ-style gradients"
+  default_prompt: "Use $graphical-abstract-v0-1 to create one clear graphical abstract preview from my supplied research files, using the EHJ palette unless I specify another color scheme."
