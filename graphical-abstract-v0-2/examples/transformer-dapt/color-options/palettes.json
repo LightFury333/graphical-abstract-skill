@@ -1,0 +1,939 @@
+{
+  "schema_version": 1,
+  "palettes": {
+    "pine-sage": {
+      "option": "B",
+      "name": "Pine and sage",
+      "name_zh": "松针绿—鼠尾草",
+      "gradient_roles": {
+        "page-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0.25,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#CCDFD3"
+            },
+            {
+              "offset": 0.48,
+              "color": "#F7FAF1"
+            },
+            {
+              "offset": 1,
+              "color": "#DAEBCE"
+            }
+          ]
+        },
+        "left-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F8FCF8"
+            },
+            {
+              "offset": 0.43,
+              "color": "#E7EFE4"
+            },
+            {
+              "offset": 1,
+              "color": "#B5D4C0"
+            }
+          ]
+        },
+        "mid-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#EAF2E5"
+            },
+            {
+              "offset": 1,
+              "color": "#E3EEDD"
+            }
+          ]
+        },
+        "right-wash": {
+          "x1": 1,
+          "y1": 0,
+          "x2": 0,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FAFDF6"
+            },
+            {
+              "offset": 0.58,
+              "color": "#E3EEDE"
+            },
+            {
+              "offset": 1,
+              "color": "#B9D6AC"
+            }
+          ]
+        },
+        "header-left": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#0A2B1F"
+            },
+            {
+              "offset": 0.42,
+              "color": "#244A35"
+            },
+            {
+              "offset": 1,
+              "color": "#377850"
+            }
+          ]
+        },
+        "header-middle": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#183A29"
+            },
+            {
+              "offset": 0.5,
+              "color": "#2D583D"
+            },
+            {
+              "offset": 1,
+              "color": "#446F49"
+            }
+          ]
+        },
+        "header-right": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#103829"
+            },
+            {
+              "offset": 0.5,
+              "color": "#326246"
+            },
+            {
+              "offset": 1,
+              "color": "#547A4A"
+            }
+          ]
+        },
+        "badge-purple": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#244A35"
+            },
+            {
+              "offset": 0.5,
+              "color": "#2E553D"
+            },
+            {
+              "offset": 1,
+              "color": "#355C43"
+            }
+          ]
+        },
+        "badge-wine": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#2E563F"
+            },
+            {
+              "offset": 0.55,
+              "color": "#3A6047"
+            },
+            {
+              "offset": 1,
+              "color": "#44694E"
+            }
+          ]
+        },
+        "badge-warm": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#3A6047"
+            },
+            {
+              "offset": 0.5,
+              "color": "#44694E"
+            },
+            {
+              "offset": 1,
+              "color": "#4A7050"
+            }
+          ]
+        },
+        "icon-spectrum": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#244A35"
+            },
+            {
+              "offset": 0.5,
+              "color": "#3A6047"
+            },
+            {
+              "offset": 1,
+              "color": "#4A7050"
+            }
+          ]
+        },
+        "conclusion-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#B9D8C6"
+            },
+            {
+              "offset": 0.5,
+              "color": "#EAF3DF"
+            },
+            {
+              "offset": 1,
+              "color": "#C4DEB3"
+            }
+          ]
+        },
+        "caution-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#DAE9DD"
+            },
+            {
+              "offset": 0.5,
+              "color": "#F4F8EF"
+            },
+            {
+              "offset": 1,
+              "color": "#E4EFDC"
+            }
+          ]
+        },
+        "footer-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#DDEBDF"
+            },
+            {
+              "offset": 0.5,
+              "color": "#F5F8F0"
+            },
+            {
+              "offset": 1,
+              "color": "#E6F0DF"
+            }
+          ]
+        },
+        "glass": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FFFFFF",
+              "opacity": 0.46
+            },
+            {
+              "offset": 1,
+              "color": "#FFFFFF",
+              "opacity": 0.23
+            }
+          ]
+        }
+      },
+      "solid_roles": {
+        "panel-rule": "#BDCDBB",
+        "table-rule": "#CCD9C8",
+        "branch-start": "#244A35",
+        "branch-end": "#4A7050",
+        "summary-rule": "#2E563F",
+        "note-rule": "#4A7050",
+        "header-shadow": "#304D36",
+        "border": "#FFFFFF",
+        "highlight": "#91B990",
+        "text": "#202D24"
+      },
+      "data_accents": {
+        "primary": "#28603E",
+        "comparator": "#424A40",
+        "secondary": "#586F45"
+      }
+    },
+    "ink-coral": {
+      "option": "C",
+      "name": "Midnight ink and coral",
+      "name_zh": "墨蓝—珊瑚",
+      "gradient_roles": {
+        "page-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0.25,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#DAE6F2"
+            },
+            {
+              "offset": 0.48,
+              "color": "#FBF8F7"
+            },
+            {
+              "offset": 1,
+              "color": "#F3D4CF"
+            }
+          ]
+        },
+        "left-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FAFCFF"
+            },
+            {
+              "offset": 0.43,
+              "color": "#E4EBF3"
+            },
+            {
+              "offset": 1,
+              "color": "#BACEE5"
+            }
+          ]
+        },
+        "mid-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F1EAF0"
+            },
+            {
+              "offset": 1,
+              "color": "#F6ECEA"
+            }
+          ]
+        },
+        "right-wash": {
+          "x1": 1,
+          "y1": 0,
+          "x2": 0,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FFFBF8"
+            },
+            {
+              "offset": 0.6,
+              "color": "#F8E7E2"
+            },
+            {
+              "offset": 1,
+              "color": "#EABBB2"
+            }
+          ]
+        },
+        "header-left": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#0B1C32"
+            },
+            {
+              "offset": 0.42,
+              "color": "#203851"
+            },
+            {
+              "offset": 1,
+              "color": "#3A678B"
+            }
+          ]
+        },
+        "header-middle": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#203851"
+            },
+            {
+              "offset": 0.5,
+              "color": "#59415E"
+            },
+            {
+              "offset": 1,
+              "color": "#84495B"
+            }
+          ]
+        },
+        "header-right": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#223953"
+            },
+            {
+              "offset": 0.5,
+              "color": "#764361"
+            },
+            {
+              "offset": 1,
+              "color": "#A64D48"
+            }
+          ]
+        },
+        "badge-purple": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#203851"
+            },
+            {
+              "offset": 0.5,
+              "color": "#2D415B"
+            },
+            {
+              "offset": 1,
+              "color": "#44435D"
+            }
+          ]
+        },
+        "badge-wine": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#44435D"
+            },
+            {
+              "offset": 0.55,
+              "color": "#6D465B"
+            },
+            {
+              "offset": 1,
+              "color": "#84495B"
+            }
+          ]
+        },
+        "badge-warm": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#84495B"
+            },
+            {
+              "offset": 0.5,
+              "color": "#9A4B51"
+            },
+            {
+              "offset": 1,
+              "color": "#A64D48"
+            }
+          ]
+        },
+        "icon-spectrum": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#203851"
+            },
+            {
+              "offset": 0.5,
+              "color": "#71475B"
+            },
+            {
+              "offset": 1,
+              "color": "#A64D48"
+            }
+          ]
+        },
+        "conclusion-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#C0D3E9"
+            },
+            {
+              "offset": 0.5,
+              "color": "#EDE2EB"
+            },
+            {
+              "offset": 1,
+              "color": "#EEBEB5"
+            }
+          ]
+        },
+        "caution-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#E1EAF3"
+            },
+            {
+              "offset": 0.5,
+              "color": "#FAF4F2"
+            },
+            {
+              "offset": 1,
+              "color": "#EEDDD9"
+            }
+          ]
+        },
+        "footer-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#E5ECF4"
+            },
+            {
+              "offset": 0.5,
+              "color": "#FBF8F6"
+            },
+            {
+              "offset": 1,
+              "color": "#F4E3E0"
+            }
+          ]
+        },
+        "glass": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FFFFFF",
+              "opacity": 0.46
+            },
+            {
+              "offset": 1,
+              "color": "#FFFFFF",
+              "opacity": 0.23
+            }
+          ]
+        }
+      },
+      "solid_roles": {
+        "panel-rule": "#D1C7C9",
+        "table-rule": "#DDD0CE",
+        "branch-start": "#203851",
+        "branch-end": "#A64D48",
+        "summary-rule": "#203851",
+        "note-rule": "#A64D48",
+        "header-shadow": "#553345",
+        "border": "#FFFFFF",
+        "highlight": "#E39787",
+        "text": "#202A39"
+      },
+      "data_accents": {
+        "primary": "#213C60",
+        "comparator": "#96373E",
+        "secondary": "#73516A"
+      }
+    },
+    "mulberry-lilac": {
+      "option": "D",
+      "name": "Mulberry and lilac",
+      "name_zh": "桑葚—丁香",
+      "gradient_roles": {
+        "page-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FBF4F9"
+            },
+            {
+              "offset": 0.55,
+              "color": "#F9F5FF"
+            },
+            {
+              "offset": 1,
+              "color": "#F2F1FE"
+            }
+          ]
+        },
+        "left-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F5E7F1"
+            },
+            {
+              "offset": 1,
+              "color": "#F8EDF7"
+            }
+          ]
+        },
+        "mid-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F0E8F9"
+            },
+            {
+              "offset": 1,
+              "color": "#EDE7F9"
+            }
+          ]
+        },
+        "right-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F7F2FE"
+            },
+            {
+              "offset": 1,
+              "color": "#E6E6FB"
+            }
+          ]
+        },
+        "header-left": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#572041"
+            },
+            {
+              "offset": 1,
+              "color": "#713152"
+            }
+          ]
+        },
+        "header-middle": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#713152"
+            },
+            {
+              "offset": 1,
+              "color": "#6D3971"
+            }
+          ]
+        },
+        "header-right": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#6D3971"
+            },
+            {
+              "offset": 0.5,
+              "color": "#614585"
+            },
+            {
+              "offset": 1,
+              "color": "#504F94"
+            }
+          ]
+        },
+        "badge-purple": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#572041"
+            },
+            {
+              "offset": 0.5,
+              "color": "#713152"
+            },
+            {
+              "offset": 1,
+              "color": "#733963"
+            }
+          ]
+        },
+        "badge-wine": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#713152"
+            },
+            {
+              "offset": 0.55,
+              "color": "#6D3971"
+            },
+            {
+              "offset": 1,
+              "color": "#694180"
+            }
+          ]
+        },
+        "badge-warm": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#6D3971"
+            },
+            {
+              "offset": 0.5,
+              "color": "#614585"
+            },
+            {
+              "offset": 1,
+              "color": "#504F94"
+            }
+          ]
+        },
+        "icon-spectrum": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#572041"
+            },
+            {
+              "offset": 0.5,
+              "color": "#6D3971"
+            },
+            {
+              "offset": 1,
+              "color": "#504F94"
+            }
+          ]
+        },
+        "conclusion-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F0DFEC"
+            },
+            {
+              "offset": 0.53,
+              "color": "#EDE2F7"
+            },
+            {
+              "offset": 1,
+              "color": "#E1DFF7"
+            }
+          ]
+        },
+        "caution-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F7EEF4"
+            },
+            {
+              "offset": 0.52,
+              "color": "#F4EFF9"
+            },
+            {
+              "offset": 1,
+              "color": "#EFEFFC"
+            }
+          ]
+        },
+        "footer-wash": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 0,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#F7F0F7"
+            },
+            {
+              "offset": 1,
+              "color": "#F3F2FC"
+            }
+          ]
+        },
+        "glass": {
+          "x1": 0,
+          "y1": 0,
+          "x2": 1,
+          "y2": 1,
+          "stops": [
+            {
+              "offset": 0,
+              "color": "#FFFFFF",
+              "opacity": 0.46
+            },
+            {
+              "offset": 1,
+              "color": "#FFFFFF",
+              "opacity": 0.23
+            }
+          ]
+        }
+      },
+      "solid_roles": {
+        "panel-rule": "#CDBED4",
+        "table-rule": "#D9CFE3",
+        "branch-start": "#572041",
+        "branch-end": "#504F94",
+        "summary-rule": "#713152",
+        "note-rule": "#504F94",
+        "header-shadow": "#54364F",
+        "border": "#FFFFFF",
+        "highlight": "#AC9DE1",
+        "text": "#332235"
+      },
+      "data_accents": {
+        "primary": "#75254B",
+        "comparator": "#534881",
+        "secondary": "#694D74"
+      }
+    }
+  }
+}

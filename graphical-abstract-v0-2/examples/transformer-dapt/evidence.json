@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "article": {
+    "citation": "Abdelhameed A, Sun Z, Yu Y, et al. npj Digital Medicine. 2026;9:781.",
+    "doi": "10.1038/s41746-026-02977-9",
+    "pmcid": "PMC13653921",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/"
+  },
+  "sources": {
+    "population": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/",
+      "locator": "Methods / Data source and study cohort; Figure 4a"
+    },
+    "figure4a": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/#Fig4",
+      "locator": "Figure 4a, cohort selection and train/validation/test counts"
+    },
+    "outcomes": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/",
+      "locator": "Methods / Study outcomes, prediction tasks, and patient characteristics"
+    },
+    "features": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/",
+      "locator": "Methods / Data preparation; Model architecture"
+    },
+    "evaluation": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/",
+      "locator": "Methods / Model development; Model performance evaluation; Statistical analysis"
+    },
+    "table2": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/#Tab2",
+      "locator": "Table 2, Transformer-DAPT row under each endpoint; Mayo test set"
+    },
+    "table3": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13653921/#Tab3",
+      "locator": "Table 3, Transformer-DAPT row under each endpoint; OneFlorida+ test set"
+    }
+  },
+  "study": {
+    "design": "Retrospective EHR-based prediction model study with internal testing and external validation.",
+    "age_min_years": 18,
+    "age_max_years": 95,
+    "minimum_clinical_followup_days": 30,
+    "index": "First coronary drug-eluting stent implantation during PCI.",
+    "treatment": {
+      "label": "Dual antiplatelet therapy (DAPT)",
+      "agents": "Aspirin plus clopidogrel, prasugrel or ticagrelor.",
+      "ascertainment": "A prescription in the 6 months before the event qualified; for event-free patients the prescription window was months 6–12 after PCI. Adherence was not directly measured."
+    },
+    "source_ids": [
+      "population",
+      "outcomes"
+    ]
+  },
+  "cohorts": [
+    {
+      "id": "mayo",
+      "name": "Mayo Clinic",
+      "role": "development and internal testing",
+      "eligible_n": 29032,
+      "screened_n": 34041,
+      "start_year": 2002,
+      "end_year": 2024,
+      "test_n": 5807,
+      "training_n": 20321,
+      "validation_n": 2904,
+      "development_split_percent": {
+        "training": 70,
+        "validation": 10,
+        "test": 20
+      },
+      "denominator_note": "Table 2 reports the held-out internal test subset. Figure 4a gives its count.",
+      "source_ids": [
+        "population",
+        "figure4a",
+        "evaluation",
+        "table2"
+      ]
+    },
+    {
+      "id": "oneflorida",
+      "name": "OneFlorida+",
+      "role": "external validation",
+      "eligible_n": 19173,
+      "screened_n": 66870,
+      "start_year": 2012,
+      "end_year": 2020,
+      "test_n": 3835,
+      "test_fraction_percent": 20,
+      "denominator_note": "Table 3 describes the randomly selected external test subset identified in Figure 4a. The abstract cites the larger eligible cohort.",
+      "source_ids": [
+        "population",
+        "figure4a",
+        "table3"
+      ]
+    }
+  ],
+  "model": {
+    "name": "Transformer-DAPT",
+    "feature_lookback_years": 2,
+    "feature_count": 3445,
+    "features": "Index demographics and baseline characteristics plus pre-PCI diagnoses, procedures and medication records.",
+    "prediction_input": "Each patient is represented once at the index procedure. Six horizons are estimated from those inputs.",
+    "architecture": "Attention-based feature encoder, time-to-event head and a separate one-year binary classification head.",
+    "source_ids": [
+      "features",
+      "outcomes"
+    ]
+  },
+  "prediction": {
+    "origin": "Index PCI with drug-eluting stent",
+    "event_ascertainment_starts_on_post_pci_day": 8,
+    "horizons_months": [
+      1,
+      2,
+      3,
+      6,
+      9,
+      12
+    ],
+    "ends_at_month": 12,
+    "source_ids": [
+      "outcomes",
+      "evaluation"
+    ]
+  },
+  "outcomes": [
+    {
+      "id": "ischemic",
+      "label": "Ischemic events",
+      "definition": "Code-based composite including acute myocardial infarction, unstable angina/intermediate coronary syndromes, cardiac arrest, ischemic stroke or TIA, repeat DES PCI, or CABG.",
+      "source_ids": [
+        "outcomes"
+      ]
+    },
+    {
+      "id": "bleeding",
+      "label": "Bleeding events",
+      "definition": "Recorded spontaneous bleeding or a blood transfusion.",
+      "source_ids": [
+        "outcomes"
+      ]
+    }
+  ],
+  "metric": {
+    "id": "ctd",
+    "label": "Time-dependent concordance index",
+    "unit": "unitless",
+    "model": "Transformer-DAPT",
+    "confidence_level": 0.95,
+    "ci_method": "Bootstrap",
+    "bootstrap_resamples": 1000,
+    "decimal_places": 2,
+    "source_ids": [
+      "evaluation",
+      "table2",
+      "table3"
+    ]
+  },
+  "results": [
+    {"cohort_id": "mayo", "outcome_id": "ischemic", "horizon_months": 1, "estimate": 0.84, "ci_lower": 0.81, "ci_upper": 0.86, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "ischemic", "horizon_months": 2, "estimate": 0.86, "ci_lower": 0.86, "ci_upper": 0.87, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "ischemic", "horizon_months": 3, "estimate": 0.87, "ci_lower": 0.86, "ci_upper": 0.87, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "ischemic", "horizon_months": 6, "estimate": 0.87, "ci_lower": 0.86, "ci_upper": 0.88, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "ischemic", "horizon_months": 9, "estimate": 0.86, "ci_lower": 0.85, "ci_upper": 0.86, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "ischemic", "horizon_months": 12, "estimate": 0.85, "ci_lower": 0.84, "ci_upper": 0.85, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "bleeding", "horizon_months": 1, "estimate": 0.88, "ci_lower": 0.83, "ci_upper": 0.93, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "bleeding", "horizon_months": 2, "estimate": 0.87, "ci_lower": 0.86, "ci_upper": 0.89, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "bleeding", "horizon_months": 3, "estimate": 0.87, "ci_lower": 0.86, "ci_upper": 0.88, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "bleeding", "horizon_months": 6, "estimate": 0.87, "ci_lower": 0.86, "ci_upper": 0.88, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "bleeding", "horizon_months": 9, "estimate": 0.84, "ci_lower": 0.82, "ci_upper": 0.85, "source_id": "table2"},
+    {"cohort_id": "mayo", "outcome_id": "bleeding", "horizon_months": 12, "estimate": 0.81, "ci_lower": 0.79, "ci_upper": 0.82, "source_id": "table2"},
+    {"cohort_id": "oneflorida", "outcome_id": "ischemic", "horizon_months": 1, "estimate": 0.84, "ci_lower": 0.74, "ci_upper": 0.92, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "ischemic", "horizon_months": 2, "estimate": 0.77, "ci_lower": 0.75, "ci_upper": 0.79, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "ischemic", "horizon_months": 3, "estimate": 0.77, "ci_lower": 0.76, "ci_upper": 0.79, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "ischemic", "horizon_months": 6, "estimate": 0.77, "ci_lower": 0.76, "ci_upper": 0.79, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "ischemic", "horizon_months": 9, "estimate": 0.75, "ci_lower": 0.74, "ci_upper": 0.77, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "ischemic", "horizon_months": 12, "estimate": 0.74, "ci_lower": 0.73, "ci_upper": 0.76, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "bleeding", "horizon_months": 1, "estimate": 0.83, "ci_lower": 0.74, "ci_upper": 0.89, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "bleeding", "horizon_months": 2, "estimate": 0.79, "ci_lower": 0.76, "ci_upper": 0.83, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "bleeding", "horizon_months": 3, "estimate": 0.79, "ci_lower": 0.76, "ci_upper": 0.81, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "bleeding", "horizon_months": 6, "estimate": 0.79, "ci_lower": 0.76, "ci_upper": 0.81, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "bleeding", "horizon_months": 9, "estimate": 0.76, "ci_lower": 0.74, "ci_upper": 0.78, "source_id": "table3"},
+    {"cohort_id": "oneflorida", "outcome_id": "bleeding", "horizon_months": 12, "estimate": 0.75, "ci_lower": 0.74, "ci_upper": 0.77, "source_id": "table3"}
+  ],
+  "interpretation": {
+    "comparison": "From month 2, external discrimination exceeded DeepSurv and DeepHit for both endpoints in the reported comparisons. At month 1 the external differences were not statistically significant.",
+    "one_month_external_p_values": [
+      {
+        "outcome_id": "ischemic",
+        "vs_deepsurv": 0.118,
+        "vs_deephit": 0.108
+      },
+      {
+        "outcome_id": "bleeding",
+        "vs_deepsurv": 0.424,
+        "vs_deephit": 0.484
+      }
+    ],
+    "two_month_external_deephit_p_values": {
+      "ischemic": 0.004,
+      "bleeding": 0.02
+    },
+    "clinical_scope": "The study measured discrimination under observed post-PCI care. It did not test a strategy for choosing DAPT duration.",
+    "source_ids": [
+      "population",
+      "table3"
+    ]
+  }
+}

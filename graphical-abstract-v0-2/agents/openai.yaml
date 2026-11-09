@@ -1,0 +1,4 @@
+interface:
+  display_name: "Graphical Abstract v 0.2"
+  short_description: "Scientific abstracts in editable SVG, PowerPoint or PNG"
+  default_prompt: "Use $graphical-abstract-v0-2 to make a graphical abstract from my research. First ask which output formats and palette I want, with editable SVG and EHJ as the defaults."
