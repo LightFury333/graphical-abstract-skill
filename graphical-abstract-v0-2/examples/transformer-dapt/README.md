@@ -4,7 +4,7 @@
 
 ![Transformer-DAPT 示例图](figure.png)
 
-[完整配色图册](palette-atlas/index.html)把 v0.1 的四套原配色、B/C/D 和 1/2/4/5 放在一起，展示同一组研究数据与同一排版。蓝—青—绿和靛蓝—紫另有[原方案双图对照](palette-atlas/blue-teal-and-indigo.png)。[高清图与 SVG 索引](../../references/palette-guide.md)
+[完整配色图册](palette-atlas/index.html)以同一份三栏底稿展示 1–11 号配色，并提供数字色卡与三步示意图。[编号与配色参数](../../references/palette-guide.md)可用于复现本研究的配色。
 
 ## 从哪几处取材
 
@@ -28,19 +28,21 @@
 - 主图提供[可编辑 PowerPoint](figure.pptx)、[可编辑 SVG](figure.svg)和[高清 PNG](figure.png)。PPTX 中的标签、数据点与置信区间都可以单独编辑。
 - [示例脚本](build_figure.py)默认从同一份证据记录生成 EHJ 配色的 SVG。SVG 使用 Python 标准库即可，PNG 另需 Node.js 和 Sharp，PPTX 按[PowerPoint 导出说明](../../references/pptx-export.md)安装依赖。
 
-在本示例目录运行以下命令，结果写入 `rebuild/`。第一条采用默认设置，只生成 EHJ 的 SVG。第二条生成与交互流程中“用 C，三种格式都要”对应的结果。需要指定本机 Sharp 时可追加 `--sharp-module` 和模块目录。
+在本示例目录运行以下命令，结果写入 `rebuild/`。第一条采用默认设置，只生成 1 号 EHJ 的 SVG。第二条对应“6 号墨蓝—珊瑚，三种格式都要”。需要指定本机 Sharp 时可追加 `--sharp-module` 和模块目录。
 
 ```sh
 python build_figure.py --output-dir rebuild
-python build_figure.py --palette C --format svg pptx png --output-dir rebuild/color-C
+python build_figure.py --palette 6 --format svg pptx png --output-dir rebuild/color-6
 ```
 
-在同一目录运行以下命令，可以分别重建三组高清配色图，再更新拼图。总览脚本使用 Pillow。Windows 默认使用微软雅黑；在其他系统可通过 `--font` 提供本机的中文字体文件。
+前三条命令重建保存的研究图。后三条从统一配色参数重建图册作品、总览与离线页面。
 
 ```sh
 python build_figure.py --v01-palettes --format svg png
 python build_figure.py --color-options --format svg png
 python build_figure.py --reference-palettes --format svg png
 python palette-atlas/build_overview.py
+python palette-atlas/build_surfaces.py
+python palette-atlas/build_gallery.py
 ```
 

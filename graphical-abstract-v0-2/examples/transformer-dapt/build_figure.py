@@ -186,16 +186,34 @@ def export_formats(svg, formats, sharp_module):
     return outputs
 
 
+def resolve_palette(choice, catalog):
+    """Resolve a public atlas selection; historical filenames never supply numbers."""
+    aliases = {"ehj": catalog["default_palette"]}
+    for palette_id, palette in catalog["palettes"].items():
+        aliases[palette_id] = palette_id
+        aliases[str(palette["atlas_number"])] = palette_id
+        aliases[palette["name_zh"].casefold()] = palette_id
+    for stem, palette_id in COLOR_OPTIONS:
+        aliases[stem.partition("-")[0].lower()] = palette_id
+
+    token = (choice or catalog["default_palette"]).strip().casefold()
+    number = token.removesuffix("号").strip()
+    if 1 <= len(number) <= 2 and number.isascii() and number.isdecimal():
+        token = str(int(number))
+    return aliases.get(token)
+
+
 def main():
     cli = argparse.ArgumentParser(description=__doc__)
     modes = cli.add_mutually_exclusive_group()
     modes.add_argument("--v01-palettes", action="store_const", dest="palette_group", const="v01-palettes",
                        help="Build the four original v0.1 palettes")
     modes.add_argument("--color-options", action="store_const", dest="palette_group", const="color-options",
-                       help="Build the three retained alternative figure palettes")
+                       help="Build pine-sage, ink-coral and mulberry-lilac with their existing filenames")
     modes.add_argument("--reference-palettes", action="store_const", dest="palette_group", const="reference-palettes",
-                       help="Build reference palettes 1, 2, 4 and 5")
-    modes.add_argument("--palette", help="A palette ID, retained letter (B/C/D), number (1/2/4/5), or EHJ")
+                       help="Build navy-brick, navy-amber, iron-steel and indigo-berry with their existing filenames")
+    modes.add_argument("--palette",
+                       help="Atlas number 1–11, English palette ID, Chinese palette name, or EHJ (default)")
     cli.add_argument("--format", nargs="+", choices=("svg", "pptx", "png"), default=["svg"],
                      help="One or more requested output formats (default: svg)")
     cli.add_argument("--output-dir", type=Path, help="Override the default output directory")
@@ -207,12 +225,10 @@ def main():
         output_dir = args.output_dir or HERE / args.palette_group
         variants = PALETTE_GROUPS[args.palette_group]
     else:
-        aliases = {p["option"]: key for key, p in catalog["palettes"].items() if "option" in p}
-        aliases["EHJ"] = catalog["default_palette"]
-        choice = (args.palette or catalog["default_palette"]).strip()
-        palette_id = aliases.get(choice.upper(), choice.lower())
-        if palette_id not in catalog["palettes"]:
-            cli.error("Unknown palette. Choose one of: " + ", ".join(catalog["palettes"]))
+        palette_id = resolve_palette(args.palette, catalog)
+        if palette_id is None:
+            cli.error("Unknown palette. Choose an atlas number from 1 to 11 or an English ID: "
+                      + ", ".join(catalog["palettes"]))
         output_dir = args.output_dir or (HERE / "rebuild" if args.palette else HERE)
         variants = (("figure", palette_id),)
     palettes = catalog["palettes"]

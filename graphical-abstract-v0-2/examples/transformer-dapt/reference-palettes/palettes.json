@@ -2,9 +2,9 @@
   "schema_version": 1,
   "palettes": {
     "navy-brick": {
-      "option": "1",
+      "atlas_number": 8,
       "name": "Navy and brick",
-      "name_zh": "海军蓝—砖红",
+      "name_zh": "深海蓝 × 砖红",
       "reference": {
         "ischemia_and_left_header": "#1A365D",
         "bleeding_marker": "#C0392B",
@@ -329,12 +329,14 @@
         "primary": "#1A365D",
         "comparator": "#C0392B",
         "secondary": "#B85D43"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/reference-palettes/1-navy-brick.svg",
+      "example_png": "examples/transformer-dapt/reference-palettes/1-navy-brick.png"
     },
     "navy-amber": {
-      "option": "2",
+      "atlas_number": 9,
       "name": "Navy and amber",
-      "name_zh": "深蓝灰—琥珀",
+      "name_zh": "藏青 × 琥珀金棕",
       "reference": {
         "ischemia_and_left_header": "#2C3E50",
         "bleeding_marker": "#C77C11",
@@ -659,12 +661,14 @@
         "primary": "#2C3E50",
         "comparator": "#C77C11",
         "secondary": "#D38B28"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/reference-palettes/2-navy-amber.svg",
+      "example_png": "examples/transformer-dapt/reference-palettes/2-navy-amber.png"
     },
     "iron-steel": {
-      "option": "4",
+      "atlas_number": 10,
       "name": "Iron and steel blue",
-      "name_zh": "铁灰—钢蓝",
+      "name_zh": "深铁灰 × 靛蓝",
       "reference": {
         "ischemia_and_left_header": "#2B2D42",
         "bleeding_marker": "#4A6FA5",
@@ -989,12 +993,14 @@
         "primary": "#2B2D42",
         "comparator": "#4A6FA5",
         "secondary": "#4A6FA5"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/reference-palettes/4-iron-steel.svg",
+      "example_png": "examples/transformer-dapt/reference-palettes/4-iron-steel.png"
     },
     "indigo-berry": {
-      "option": "5",
+      "atlas_number": 11,
       "name": "Indigo and berry",
-      "name_zh": "靛蓝—莓红",
+      "name_zh": "深靛青 × 烟熏洋红",
       "reference": {
         "ischemia_and_left_header": "#343A60",
         "bleeding_marker": "#A04668",
@@ -1319,7 +1325,9 @@
         "primary": "#343A60",
         "comparator": "#A04668",
         "secondary": "#A04668"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/reference-palettes/5-indigo-berry.svg",
+      "example_png": "examples/transformer-dapt/reference-palettes/5-indigo-berry.png"
     }
   }
 }

@@ -46,5 +46,11 @@ data/
 !graphical-abstract-v0-2/examples/transformer-dapt/reference-palettes/comparison.png
 !graphical-abstract-v0-2/examples/transformer-dapt/v01-palettes/*.svg
 !graphical-abstract-v0-2/examples/transformer-dapt/v01-palettes/*.png
-!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/overview.png
-!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/blue-teal-and-indigo.png
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/cards-overview.png
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/schematics-overview.png
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/cards/*.svg
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/schematics/*.svg
+!graphical-abstract-v0-2/examples/transformer-dapt/study-previews/*.png
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/surfaces/*.svg
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/surfaces/*.png
+!graphical-abstract-v0-2/examples/transformer-dapt/palette-atlas/surfaces-overview.png

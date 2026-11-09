@@ -15,16 +15,16 @@ Turn the user's research files into one self-contained graphical abstract in the
 
 Before composing or exporting a new figure or starting a new revision request, **ask the user for both choices together** in their language. Offer SVG, PowerPoint (.pptx), PNG, and multiple formats. Offer EHJ, the [11-palette gallery](references/palette-guide.md), or a custom palette. Mark **editable SVG + EHJ** as the default. Present explicitly supplied choices as preselected, so the user can confirm or change them. For Chinese, a suitable prompt is:
 
-> 这次想要可编辑 SVG、可编辑 PowerPoint（.pptx）、PNG，还是多种格式？配色用 EHJ、图册中的某一套，还是自定义颜色？回复“默认”即可采用 SVG + EHJ。
+> 这次想要可编辑 SVG、可编辑 PowerPoint（.pptx）、PNG，还是多种格式？配色可以选图册中的 1–11 号，也可以自定义。回复“默认”即可采用 SVG + 1 号 EHJ。
 
 Wait for the answer before producing the requested deliverables. “默认” accepts both defaults. If the answer sets only one choice and the other has no previously stated preference, use the default for that other choice. An explicit instruction such as “直接用默认，不用再问” counts as the user's answer. Once choices are settled, carry them through the current job without asking again during rendering or QA. Start the two-choice prompt again on the next invocation.
 
 ## Defaults and user control
 
 - Default output is one `.svg` with editable text and vector shapes. Export the same approved composition to every selected format. A PNG used to inspect the layout is an internal proof unless PNG was selected.
-- Default palette: `ehj-default` in [references/palettes.json](references/palettes.json). Open [the EHJ color reference](assets/palette-examples/ehj-default.png) before composing. The boards contain **no text, icons, or study data**; they are color/surface references, not content templates.
+- Default palette: **1** (`ehj-default`) in [references/palettes.json](references/palettes.json). Open [the EHJ surface board](examples/transformer-dapt/palette-atlas/surfaces/01.svg) before composing. Use the gradients and light fills as color references; choose the study’s layout from its evidence.
 - Accept any palette: a description, HEX colors, a brand palette, or an image. The included palettes are examples, not an allowed list. Translate custom anchors into the same headers, pale surfaces, coordinated icon gradients, and black/white text.
-- Use [the unified palette guide](references/palette-guide.md) to resolve original v0.1 names, B/C/D, or 1/2/4/5. Preview the selected palette on the shared study figure. The default example uses `ehj-default`. Check white headings against the actual gradient beneath the letters.
+- Resolve numbers **1–11** by the catalog’s `atlas_number` field. Match Chinese names and stable English palette IDs using the [palette guide](references/palette-guide.md). The atlas opens on the text-free three-column surface boards. The number cards and three-step schematics are alternate views of the same numbered palettes. Check heading contrast where the letters fall on the gradient.
 - New compositions default to landscape 18:11, with a 3600 × 2200 PNG target. Preserve the aspect ratio of an approved composition when revising it. These are workflow defaults, not a claim about current journal submission rules.
 - Figure copy defaults to concise English; follow a user-specified language. Communicate with the user in their language.
 - Default to the horizontal main figure. Do not add Key Question / Key Finding / Take Home Message blocks, a publisher logo, or unrelated branding unless requested.

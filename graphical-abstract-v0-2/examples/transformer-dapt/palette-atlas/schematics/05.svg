@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei, Noto Sans CJK SC, PingFang SC, Source Han Sans SC, sans-serif" fill="#21252B" width="680" height="420" viewBox="0 0 680 420" role="img" aria-labelledby="title description">
+  <title id="title">5  松针绿—鼠尾草</title>
+  <desc id="description">极简示意图。采样、检测和观察三个步骤依次用箭头连接。</desc>
+  <defs>
+    <linearGradient id="page-wash" x1="0%" y1="0%" x2="100%" y2="25%">
+      <stop offset="0%" stop-color="#CCDFD3" stop-opacity="1" />
+      <stop offset="48%" stop-color="#F7FAF1" stop-opacity="1" />
+      <stop offset="100%" stop-color="#DAEBCE" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="left-wash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FCF8" stop-opacity="1" />
+      <stop offset="43%" stop-color="#E7EFE4" stop-opacity="1" />
+      <stop offset="100%" stop-color="#B5D4C0" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="mid-wash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAF2E5" stop-opacity="1" />
+      <stop offset="100%" stop-color="#E3EEDD" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="right-wash" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAFDF6" stop-opacity="1" />
+      <stop offset="58%" stop-color="#E3EEDE" stop-opacity="1" />
+      <stop offset="100%" stop-color="#B9D6AC" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="header-left" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0A2B1F" stop-opacity="1" />
+      <stop offset="42%" stop-color="#244A35" stop-opacity="1" />
+      <stop offset="100%" stop-color="#377850" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="header-middle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#183A29" stop-opacity="1" />
+      <stop offset="50%" stop-color="#2D583D" stop-opacity="1" />
+      <stop offset="100%" stop-color="#446F49" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="header-right" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#103829" stop-opacity="1" />
+      <stop offset="50%" stop-color="#326246" stop-opacity="1" />
+      <stop offset="100%" stop-color="#547A4A" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="badge-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#244A35" stop-opacity="1" />
+      <stop offset="50%" stop-color="#2E553D" stop-opacity="1" />
+      <stop offset="100%" stop-color="#355C43" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="badge-wine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2E563F" stop-opacity="1" />
+      <stop offset="55%" stop-color="#3A6047" stop-opacity="1" />
+      <stop offset="100%" stop-color="#44694E" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="badge-warm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A6047" stop-opacity="1" />
+      <stop offset="50%" stop-color="#44694E" stop-opacity="1" />
+      <stop offset="100%" stop-color="#4A7050" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="icon-spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#244A35" stop-opacity="1" />
+      <stop offset="50%" stop-color="#3A6047" stop-opacity="1" />
+      <stop offset="100%" stop-color="#4A7050" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="conclusion-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#B9D8C6" stop-opacity="1" />
+      <stop offset="50%" stop-color="#EAF3DF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#C4DEB3" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="caution-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DAE9DD" stop-opacity="1" />
+      <stop offset="50%" stop-color="#F4F8EF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#E4EFDC" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="footer-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DDEBDF" stop-opacity="1" />
+      <stop offset="50%" stop-color="#F5F8F0" stop-opacity="1" />
+      <stop offset="100%" stop-color="#E6F0DF" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.46" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.23" />
+    </linearGradient>
+  </defs>
+  <rect width="680" height="420" fill="url(#page-wash)" />
+  <rect width="680" height="10" fill="url(#icon-spectrum)" />
+  <text x="71" y="79" font-size="57" font-family="Bahnschrift, Arial, sans-serif" font-weight="600" text-anchor="middle" fill="url(#header-left)">5</text>
+  <path d="M117 38 V79" stroke="#BDCDBB" stroke-width="3" />
+  <text x="141" y="76" font-size="35" fill="#202D24">松针绿—鼠尾草</text>
+  <path d="M32 106 H648" stroke="#BDCDBB" stroke-width="2" />
+  <rect x="32" y="140" width="156" height="156" rx="40" fill="url(#left-wash)" stroke="url(#header-left)" stroke-width="3" />
+  <g transform="translate(110 218)" stroke="#202D24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <path d="M-21 -22 V23 A21 21 0 0 0 21 23 V-22" />
+    <path d="M-18 7 Q-6 2 2 6 Q10 10 18 7 V23 A18 18 0 0 1 -18 23 Z" fill="url(#header-left)" stroke="none" />
+    <path d="M-26 -22 H26 M10 -8 H20 M12 3 H20" />
+    <path d="M0 -60 C-2 -53 -10 -47 -10 -40 A10 10 0 0 0 10 -40 C10 -46 2 -54 0 -60 Z" fill="url(#badge-purple)" stroke="none" />
+  </g>
+  <text x="110" y="360" font-size="39" text-anchor="middle" fill="#202D24">采样</text>
+  <rect x="262" y="140" width="156" height="156" rx="40" fill="url(#mid-wash)" stroke="url(#header-middle)" stroke-width="3" />
+  <g transform="translate(340 218)" stroke="#202D24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <path d="M7 -21 C38 -19 48 7 35 26 C30 33 20 38 10 39" stroke-width="9" />
+    <g transform="rotate(34)">
+      <rect x="-10" y="-49" width="20" height="44" rx="3" fill="url(#header-middle)" stroke-width="4" />
+      <path d="M-14 -51 H14 M-6 -4 V4 H6 V-4" stroke-width="5" />
+    </g>
+    <path d="M-36 12 H7 M-25 17 H-4 M6 38 L1 44 M-32 45 H36" stroke-width="6" />
+    <circle cx="20" cy="-3" r="9" fill="url(#mid-wash)" stroke-width="4.5" />
+  </g>
+  <text x="340" y="360" font-size="39" text-anchor="middle" fill="#202D24">检测</text>
+  <rect x="492" y="140" width="156" height="156" rx="40" fill="url(#right-wash)" stroke="url(#header-right)" stroke-width="3" />
+  <g transform="translate(570 218)" stroke="#202D24" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <path d="M-51 0 Q-25 -31 0 -31 Q24 -31 51 0 Q25 31 0 31 Q-26 31 -51 0 Z" fill="url(#page-wash)" />
+    <circle cx="0" cy="0" r="20" fill="url(#header-right)" stroke-width="3.5" />
+    <circle cx="0" cy="0" r="7" stroke="none" fill="#202D24" />
+    <circle cx="-6" cy="-7" r="4.5" fill="#FFFFFF" stroke="none" />
+  </g>
+  <text x="570" y="360" font-size="39" text-anchor="middle" fill="#202D24">观察</text>
+  <path d="M201 218 H247 M234 209 L247 218 L234 227" fill="none" stroke="#244A35" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+  <path d="M431 218 H477 M464 209 L477 218 L464 227" fill="none" stroke="#4A7050" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+</svg>

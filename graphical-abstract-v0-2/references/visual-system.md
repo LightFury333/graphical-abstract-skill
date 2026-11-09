@@ -1,6 +1,6 @@
 # The established visual system
 
-The target visual family is shown in `assets/palette-examples/`: pale continuous color fields, rich gradient section bars, rounded panels, simple gradient-compatible scientific pictograms, and black/white sans-serif text. These are original color-only derivatives of the approved task result, not official journal artwork.
+The [numbered atlas](../examples/transformer-dapt/palette-atlas/index.html) opens on the v0.1 three-column surface design. Compare the three header gradients, tinted panels, translucent cards and horizontal bands. The number cards and three-step diagrams are also available. Read the pale surfaces, strong gradients and foreground contrast together when applying the palette to a new figure.
 
 ## Color and surface
 
@@ -13,7 +13,7 @@ Default to `ehj-default` in [palettes.json](palettes.json): purple → wine/rose
 - Keep borders thin and pale; subtle downward header shadows are appropriate. Avoid heavy shadows, bevels, glare, and decorative 3D treatment.
 - Takeaway/footer surfaces share the overall gradient logic. Use red/green for clinical results only when the encoding is meaningful and explained.
 
-See the [palette guide](palette-guide.md) for all eleven choices shown on the same study figure. For arbitrary colors, choose two or more anchors, derive intermediate hues, and create pale tints. A starting point is 85–95% white for panels and 94–98% white for the page field. Preserve hue relationships as the study moves from one section to the next. For a color-only edit, explicitly map every colored rule, arrow, shadow, icon, and panel.
+See the [palette guide](palette-guide.md) for all eleven numbered surface boards and their alternate views. For arbitrary colors, choose two or more anchors, derive intermediate hues, and create pale tints. A starting point is 85–95% white for panels and 94–98% white for the page field. Preserve hue relationships as the study moves from one section to the next. For a color-only edit, explicitly map every colored rule, arrow, shadow, icon, and panel.
 
 ## Typography
 

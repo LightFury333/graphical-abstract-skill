@@ -7,7 +7,9 @@
   },
   "palettes": {
     "ehj-default": {
+      "atlas_number": 1,
       "name": "EHJ-style purple, wine and orange",
+      "name_zh": "EHJ 紫—酒红—橙",
       "gradient_roles": {
         "page-wash": {
           "x1": 0.0,
@@ -306,7 +308,9 @@
       }
     },
     "blue-teal-jade": {
+      "atlas_number": 2,
       "name": "Blue, teal and jade",
+      "name_zh": "蓝—青—绿",
       "gradient_roles": {
         "page-wash": {
           "x1": 0.0,
@@ -605,7 +609,9 @@
       }
     },
     "indigo-violet": {
+      "atlas_number": 3,
       "name": "Indigo and violet",
+      "name_zh": "靛蓝—紫",
       "gradient_roles": {
         "page-wash": {
           "x1": 0.0,
@@ -904,7 +910,9 @@
       }
     },
     "burgundy-rose-gold": {
+      "atlas_number": 4,
       "name": "Burgundy, rose and gold",
+      "name_zh": "酒红—玫瑰—金",
       "gradient_roles": {
         "page-wash": {
           "x1": 0.0,
@@ -1203,7 +1211,7 @@
       }
     },
     "pine-sage": {
-      "option": "B",
+      "atlas_number": 5,
       "name": "Pine and sage",
       "name_zh": "松针绿—鼠尾草",
       "gradient_roles": {
@@ -1523,7 +1531,7 @@
       "example_png": "examples/transformer-dapt/color-options/B-pine-sage.png"
     },
     "ink-coral": {
-      "option": "C",
+      "atlas_number": 6,
       "name": "Midnight ink and coral",
       "name_zh": "墨蓝—珊瑚",
       "gradient_roles": {
@@ -1843,7 +1851,7 @@
       "example_png": "examples/transformer-dapt/color-options/C-ink-coral.png"
     },
     "mulberry-lilac": {
-      "option": "D",
+      "atlas_number": 7,
       "name": "Mulberry and lilac",
       "name_zh": "桑葚—丁香",
       "gradient_roles": {
@@ -2143,9 +2151,9 @@
       "example_png": "examples/transformer-dapt/color-options/D-mulberry-lilac.png"
     },
     "navy-brick": {
-      "option": "1",
+      "atlas_number": 8,
       "name": "Navy and brick",
-      "name_zh": "海军蓝—砖红",
+      "name_zh": "深海蓝 × 砖红",
       "reference": {
         "ischemia_and_left_header": "#1A365D",
         "bleeding_marker": "#C0392B",
@@ -2475,9 +2483,9 @@
       "example_png": "examples/transformer-dapt/reference-palettes/1-navy-brick.png"
     },
     "navy-amber": {
-      "option": "2",
+      "atlas_number": 9,
       "name": "Navy and amber",
-      "name_zh": "深蓝灰—琥珀",
+      "name_zh": "藏青 × 琥珀金棕",
       "reference": {
         "ischemia_and_left_header": "#2C3E50",
         "bleeding_marker": "#C77C11",
@@ -2807,9 +2815,9 @@
       "example_png": "examples/transformer-dapt/reference-palettes/2-navy-amber.png"
     },
     "iron-steel": {
-      "option": "4",
+      "atlas_number": 10,
       "name": "Iron and steel blue",
-      "name_zh": "铁灰—钢蓝",
+      "name_zh": "深铁灰 × 靛蓝",
       "reference": {
         "ischemia_and_left_header": "#2B2D42",
         "bleeding_marker": "#4A6FA5",
@@ -3139,9 +3147,9 @@
       "example_png": "examples/transformer-dapt/reference-palettes/4-iron-steel.png"
     },
     "indigo-berry": {
-      "option": "5",
+      "atlas_number": 11,
       "name": "Indigo and berry",
-      "name_zh": "靛蓝—莓红",
+      "name_zh": "深靛青 × 烟熏洋红",
       "reference": {
         "ischemia_and_left_header": "#343A60",
         "bleeding_marker": "#A04668",

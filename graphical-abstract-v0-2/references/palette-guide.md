@@ -1,39 +1,23 @@
-# 11 套配色图册
+# 图形摘要配色指南
 
-[打开交互图册](../examples/transformer-dapt/palette-atlas/index.html)可在同一版式中放大比较。每张 PNG 均为 3600 × 2200 像素，每套 SVG 都保留可编辑的文字、数据点及置信区间。
+[打开离线图册](../examples/transformer-dapt/palette-atlas/index.html)，先看配色示例中的标题栏、分区底色和渐变，再按同一编号切换数字色卡或极简示意图。
 
-![11 套配色的完整成图对照](../examples/transformer-dapt/palette-atlas/overview.png)
+[配色示例总览（PNG）](../examples/transformer-dapt/palette-atlas/surfaces-overview.png) · [数字色卡总览（PNG）](../examples/transformer-dapt/palette-atlas/cards-overview.png) · [极简示意图总览（PNG）](../examples/transformer-dapt/palette-atlas/schematics-overview.png)
 
-## v0.1 原配色
+制图时可指定图册编号、中文名称或配色 ID。默认组合是可编辑 SVG 和 1 号 EHJ 配色。
 
-蓝—青—绿与靛蓝—紫沿用 v0.1 的原始渐变方向、色标和位置。[两套原方案并排对照](../examples/transformer-dapt/palette-atlas/blue-teal-and-indigo.png)
+| 编号 | 配色 | 配色 ID | 配色示例 | 数字色卡 | 极简示意图 |
+| ---: | --- | --- | --- | --- | --- |
+| 1 | EHJ 紫—酒红—橙 | `ehj-default` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/01.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/01.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/01.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/01.svg) |
+| 2 | 蓝—青—绿 | `blue-teal-jade` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/02.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/02.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/02.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/02.svg) |
+| 3 | 靛蓝—紫 | `indigo-violet` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/03.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/03.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/03.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/03.svg) |
+| 4 | 酒红—玫瑰—金 | `burgundy-rose-gold` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/04.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/04.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/04.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/04.svg) |
+| 5 | 松针绿—鼠尾草 | `pine-sage` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/05.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/05.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/05.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/05.svg) |
+| 6 | 墨蓝—珊瑚 | `ink-coral` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/06.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/06.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/06.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/06.svg) |
+| 7 | 桑葚—丁香 | `mulberry-lilac` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/07.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/07.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/07.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/07.svg) |
+| 8 | 深海蓝 × 砖红 | `navy-brick` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/08.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/08.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/08.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/08.svg) |
+| 9 | 藏青 × 琥珀金棕 | `navy-amber` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/09.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/09.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/09.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/09.svg) |
+| 10 | 深铁灰 × 靛蓝 | `iron-steel` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/10.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/10.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/10.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/10.svg) |
+| 11 | 深靛青 × 烟熏洋红 | `indigo-berry` | [SVG](../examples/transformer-dapt/palette-atlas/surfaces/11.svg) · [PNG](../examples/transformer-dapt/palette-atlas/surfaces/11.png) | [色卡](../examples/transformer-dapt/palette-atlas/cards/11.svg) | [示意图](../examples/transformer-dapt/palette-atlas/schematics/11.svg) |
 
-| 配色 | 配色 ID | 成图 |
-| --- | --- | --- |
-| EHJ 紫—酒红—橙 | `ehj-default` | [高清 PNG](../examples/transformer-dapt/v01-palettes/ehj-default.png) · [可编辑 SVG](../examples/transformer-dapt/v01-palettes/ehj-default.svg) |
-| 蓝—青—绿 | `blue-teal-jade` | [高清 PNG](../examples/transformer-dapt/v01-palettes/blue-teal-jade.png) · [可编辑 SVG](../examples/transformer-dapt/v01-palettes/blue-teal-jade.svg) |
-| 靛蓝—紫 | `indigo-violet` | [高清 PNG](../examples/transformer-dapt/v01-palettes/indigo-violet.png) · [可编辑 SVG](../examples/transformer-dapt/v01-palettes/indigo-violet.svg) |
-| 酒红—玫瑰—金 | `burgundy-rose-gold` | [高清 PNG](../examples/transformer-dapt/v01-palettes/burgundy-rose-gold.png) · [可编辑 SVG](../examples/transformer-dapt/v01-palettes/burgundy-rose-gold.svg) |
-
-## 保留的字母方案
-
-| 配色 | 配色 ID | 成图 |
-| --- | --- | --- |
-| B　松针绿—鼠尾草 | `pine-sage` | [高清 PNG](../examples/transformer-dapt/color-options/B-pine-sage.png) · [可编辑 SVG](../examples/transformer-dapt/color-options/B-pine-sage.svg) |
-| C　墨蓝—珊瑚 | `ink-coral` | [高清 PNG](../examples/transformer-dapt/color-options/C-ink-coral.png) · [可编辑 SVG](../examples/transformer-dapt/color-options/C-ink-coral.svg) |
-| D　桑葚—丁香 | `mulberry-lilac` | [高清 PNG](../examples/transformer-dapt/color-options/D-mulberry-lilac.png) · [可编辑 SVG](../examples/transformer-dapt/color-options/D-mulberry-lilac.svg) |
-
-## 保留的编号方案
-
-| 配色 | 配色 ID | 成图 |
-| --- | --- | --- |
-| 1　深海蓝 × 砖红 | `navy-brick` | [高清 PNG](../examples/transformer-dapt/reference-palettes/1-navy-brick.png) · [可编辑 SVG](../examples/transformer-dapt/reference-palettes/1-navy-brick.svg) |
-| 2　藏青 × 琥珀金棕 | `navy-amber` | [高清 PNG](../examples/transformer-dapt/reference-palettes/2-navy-amber.png) · [可编辑 SVG](../examples/transformer-dapt/reference-palettes/2-navy-amber.svg) |
-| 4　深铁灰 × 靛蓝 | `iron-steel` | [高清 PNG](../examples/transformer-dapt/reference-palettes/4-iron-steel.png) · [可编辑 SVG](../examples/transformer-dapt/reference-palettes/4-iron-steel.svg) |
-| 5　深靛青 × 烟熏洋红 | `indigo-berry` | [高清 PNG](../examples/transformer-dapt/reference-palettes/5-indigo-berry.png) · [可编辑 SVG](../examples/transformer-dapt/reference-palettes/5-indigo-berry.svg) |
-
-## 应用到新图
-
-用中文名、字母、编号或配色 ID 选择方案。渐变方向和全部色标收在同一份[配色参数](palettes.json)里。新图可沿用标题和面板渐变，用实色、点形和直接标注区分结局。
-
-四套 v0.1 配色都沿用原始渐变。EHJ 方案中，右侧标题越靠橙色端，白字对比度越低。此例保留原来的色标，并使用大号白字。缩小标题时，可将文字移向较深的一端或局部加深标题背景。
+各套配色的渐变色标、方向和数据标记颜色见[配色参数](palettes.json)。

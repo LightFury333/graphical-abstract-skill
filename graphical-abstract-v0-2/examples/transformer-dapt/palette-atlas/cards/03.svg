@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei, Noto Sans CJK SC, PingFang SC, Source Han Sans SC, sans-serif" fill="#21252B" width="680" height="420" viewBox="0 0 680 420" role="img" aria-labelledby="title description">
+  <title id="title">3  靛蓝—紫</title>
+  <desc id="description">数字色卡。三层曲面分别展示本组左、中、右标题渐变。</desc>
+  <defs>
+    <linearGradient id="page-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F3F4F7" stop-opacity="1" />
+      <stop offset="55%" stop-color="#F6F6F9" stop-opacity="1" />
+      <stop offset="100%" stop-color="#FBFAFC" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="left-wash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0E3EB" stop-opacity="1" />
+      <stop offset="100%" stop-color="#E9E9F0" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="mid-wash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E6E7EF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#EFEEF4" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="right-wash" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECECF3" stop-opacity="1" />
+      <stop offset="100%" stop-color="#F0ECF2" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="header-left" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#273D72" stop-opacity="1" />
+      <stop offset="100%" stop-color="#3B437F" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="header-middle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3D4380" stop-opacity="1" />
+      <stop offset="100%" stop-color="#54488A" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="header-right" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#56488A" stop-opacity="1" />
+      <stop offset="50%" stop-color="#664789" stop-opacity="1" />
+      <stop offset="100%" stop-color="#744687" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="badge-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#273D72" stop-opacity="1" />
+      <stop offset="50%" stop-color="#3B437F" stop-opacity="1" />
+      <stop offset="100%" stop-color="#4E488B" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="badge-wine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2E3F77" stop-opacity="1" />
+      <stop offset="55%" stop-color="#4E488B" stop-opacity="1" />
+      <stop offset="100%" stop-color="#624789" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="badge-warm" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4E488B" stop-opacity="1" />
+      <stop offset="50%" stop-color="#614789" stop-opacity="1" />
+      <stop offset="100%" stop-color="#744687" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="icon-spectrum" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#273D72" stop-opacity="1" />
+      <stop offset="50%" stop-color="#4E488B" stop-opacity="1" />
+      <stop offset="100%" stop-color="#744687" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="conclusion-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DCE0E8" stop-opacity="1" />
+      <stop offset="53%" stop-color="#E6E5EF" stop-opacity="1" />
+      <stop offset="100%" stop-color="#EDE7EF" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="caution-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8EBF0" stop-opacity="1" />
+      <stop offset="52%" stop-color="#EBEAF2" stop-opacity="1" />
+      <stop offset="100%" stop-color="#E9E1EC" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="footer-wash" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ECEEF2" stop-opacity="1" />
+      <stop offset="100%" stop-color="#F5F2F7" stop-opacity="1" />
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.46" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.23" />
+    </linearGradient>
+  </defs>
+  <rect width="680" height="420" fill="url(#page-wash)" />
+  <rect width="680" height="322" fill="url(#left-wash)" />
+  <path d="M333 322 C416 233 385 112 482 48 C544 8 616 15 680 -16 L680 322 Z" fill="url(#header-left)" />
+  <path d="M402 322 C476 254 460 156 538 102 C591 65 639 62 680 49 L680 322 Z" fill="url(#header-middle)" />
+  <path d="M479 322 C541 272 559 210 614 164 C637 145 661 133 680 129 L680 322 Z" fill="url(#header-right)" />
+  <text x="170" y="255" font-size="236" font-family="Bahnschrift, Arial, sans-serif" font-weight="600" text-anchor="middle" letter-spacing="-8" fill="url(#header-left)">3</text>
+  <path d="M0 322 H680" stroke="#BEC2D5" stroke-width="1.5" fill="none" />
+  <text x="39" y="385" font-size="40" fill="#000000">靛蓝—紫</text>
+</svg>

@@ -3,340 +3,687 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>图形摘要配色图集 · Graphical Abstract v0.2</title>
+  <meta name="color-scheme" content="light">
+  <title>图形摘要配色图册 · Graphical Abstract v0.2</title>
   <style>
     :root {
       color-scheme: light;
-      --paper: #fcfbf8;
-      --ink: #242822;
-      --muted: #5d655c;
-      --hairline: #cfcec5;
-      --focus: #365a43;
+      --paper: #f8f8f5;
+      --ink: #242921;
+      --muted: #596058;
+      --line: #ccd0c8;
+      --focus: #236142;
       font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
     }
     * { box-sizing: border-box; }
-    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.5; }
+    [hidden] { display: none !important; }
+    body, h1, h2, p { margin: 0; }
     a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
     button { font: inherit; color: inherit; cursor: pointer; }
     :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-    .frame { width: min(1512px, 100%); margin: auto; padding: 0 clamp(18px, 4.3vw, 76px); }
-    .masthead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 21px 0; border-bottom: 1px solid var(--hairline); }
-    .brand { display: flex; align-items: baseline; gap: 10px; }
-    .brand-name { font: 600 24px/1.1 Georgia, "Times New Roman", serif; letter-spacing: -.035em; }
-    .version { font-size: 13px; color: var(--muted); }
-    .jump { display: flex; flex-wrap: wrap; gap: 10px 24px; margin: 0; }
-    .jump a { font-size: 14px; color: var(--muted); text-decoration: none; }
-    .jump a:hover, .formats a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
-    .intro { padding: clamp(30px, 4.6vw, 72px) 0 clamp(23px, 2.6vw, 40px); }
-    h1, h2, h3, p { margin: 0; }
-    h1 { font: 600 clamp(37px, 4.6vw, 66px)/1.18 "Songti SC", "Noto Serif CJK SC", SimSun, Georgia, serif; letter-spacing: .005em; }
-    .intro p { margin-top: 13px; color: var(--muted); font-size: clamp(15px, 1.3vw, 19px); }
-    main { padding-bottom: 62px; }
-    .palette-group { border-top: 1px solid var(--hairline); padding: clamp(19px, 2.1vw, 32px) 0 clamp(24px, 3vw, 48px); scroll-margin-top: 12px; }
-    h2 { margin: 0 0 14px; font-size: clamp(19px, 1.7vw, 25px); line-height: 1.4; font-weight: 600; }
-    .cards { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px clamp(12px, 1.45vw, 24px); }
-    .cards.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
-    .palette-card { min-width: 0; }
-    .preview { position: relative; display: block; overflow: hidden; background: #fff; border: 1px solid #cfcec7; border-radius: 5px; cursor: zoom-in; }
-    .preview img { display: block; width: 100%; height: auto; aspect-ratio: 18/11; }
-    .preview:hover, .preview:focus-visible { border-color: #687564; }
-    .zoom { position: absolute; top: 8px; right: 8px; background: #fffffff2; color: var(--ink); border: 1px solid var(--hairline); border-radius: 4px; font-size: 12px; padding: 3px 7px; opacity: 0; }
-    .preview:hover .zoom, .preview:focus-visible .zoom { opacity: 1; }
-    .caption { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; padding-top: 9px; }
-    .swatch { display: inline-block; width: 21px; height: 6px; flex: none; border-radius: 3px; }
-    h3 { font-weight: 600; font-size: clamp(15px, 1.16vw, 18px); line-height: 1.45; }
-    .formats { display: inline-flex; align-items: center; gap: 9px; margin-left: auto; }
-    .formats a { display: inline-block; padding: 3px 0; font-size: 12px; color: var(--muted); text-decoration: underline; text-decoration-color: #a6ab9f; text-underline-offset: 3px; }
-    dialog { color: var(--ink); background: var(--paper); width: min(1500px,95vw); max-width: 100vw; max-height: 96vh; max-height: 96dvh; padding: 0; border: 1px solid var(--hairline); border-radius: 7px; }
-    dialog::backdrop { background: rgb(16 22 18 / 78%); }
+    .wrap { max-width: 1660px; padding: 0 clamp(18px, 4.3vw, 76px); margin: auto; }
+    .topbar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 10px 24px; min-height: 70px; padding: 12px 0; border-bottom: 1px solid var(--line);
+    }
+    .wordmark { display: flex; align-items: baseline; gap: 9px; white-space: nowrap; }
+    .wordmark span:first-child { font: 600 25px/1.15 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
+    .version { font-size: 12px; color: var(--muted); }
+    .overviews { display: flex; flex-wrap: wrap; gap: 2px 23px; }
+    .overviews a, .open-original { font-size: 14px; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .overviews a { padding: 7px 0; text-decoration-color: transparent; }
+    .overviews a:hover, .open-original:hover { text-decoration-color: currentColor; }
+    .mast { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 22px; padding: clamp(28px, 4.6vw, 66px) 0 clamp(19px, 2.6vw, 34px); }
+    h1 { font: 600 clamp(32px, 4.1vw, 63px)/1.2 "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif; }
+    .palette-count { color: var(--muted); font-size: 15px; }
+    .tabs { display: flex; gap: clamp(8px, 2vw, 28px); margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .tabs button {
+      position: relative; padding: 11px 6px 13px; border: none;
+      background: transparent; color: var(--muted); font-size: 17px; line-height: 1.4;
+    }
+    .tabs button[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+    .tabs button[aria-selected="true"]::after {
+      position: absolute; inset: auto 0 -1px; height: 3px; background: var(--ink); content: "";
+    }
+    main { padding-bottom: 44px; }
+    .fallback-title { font-size: 21px; margin: 0 0 12px; }
+    .enhanced .fallback-title { display: none; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px clamp(12px, 1.4vw, 24px); }
+    .tile { min-width: 0; display: flex; flex-direction: column; }
+    .preview {
+      position: relative; display: block; overflow: hidden; background: white;
+      border: 1px solid var(--line); border-radius: 4px; cursor: zoom-in;
+    }
+    .preview:hover, .preview:focus-visible { border-color: #697267; }
+    .preview img { display: block; width: 100%; height: auto; }
+    .zoom-hint {
+      position: absolute; bottom: 8px; right: 8px; padding: 3px 8px;
+      border: 1px solid #ccd0c8; border-radius: 3px; color: var(--ink);
+      background: #fffffff2; font-size: 12px; opacity: 0;
+    }
+    .preview:hover .zoom-hint, .preview:focus-visible .zoom-hint { opacity: 1; }
+    .tile-meta { display: flex; align-items: baseline; justify-content: flex-end; flex-wrap: wrap; gap: 0 8px; }
+    .tile-title { margin: 0 auto 0 0; padding: 6px 0; font-size: 15px; line-height: 1.4; font-weight: 600; }
+    .tile-links { display: flex; align-items: baseline; gap: 10px; }
+    .source { flex: none; padding: 6px 2px; color: var(--muted); font-size: 12px; text-decoration: none; }
+    .source:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    dialog {
+      width: min(1160px, 94vw); max-width: 100vw;
+      max-height: 96vh; max-height: 96dvh; margin: auto; padding: 0;
+      color: var(--ink); background: var(--paper); border: 1px solid #bfc5bd; border-radius: 7px;
+    }
+    dialog::backdrop { background: #172019c7; }
     body:has(dialog[open]) { overflow: hidden; }
-    .viewer-body { padding: clamp(10px,1.9vw,26px); }
-    .viewer-header, .viewer-footer { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
-    .viewer-header { padding-bottom: 10px; }
-    .viewer-header h2 { margin: 0; font-size: clamp(18px, 2vw, 24px); }
-    .viewer-image { display: block; width: 100%; height: auto; max-height: calc(96vh - 145px); max-height: calc(96dvh - 145px); object-fit: contain; }
-    .viewer-footer { padding-top: 12px; }
-    .viewer-actions { display: flex; align-items: center; gap: 7px; }
-    .viewer-header button, .viewer-actions button { min-height: 37px; padding: 5px 12px; background: #fff; border: 1px solid var(--hairline); border-radius: 3px; }
-    .viewer-header button:hover, .viewer-actions button:hover { border-color: #67816b; background: #f0f3ed; }
-    .counter { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
-    .viewer-footer .formats { margin: 0; }
-    @media (max-width: 1150px) {
-      .cards { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .cards.three { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    .viewer-body { padding: clamp(12px, 1.6vw, 22px); }
+    .viewer-head, .viewer-foot, .pager { display: flex; align-items: center; gap: 8px; }
+    .viewer-head, .viewer-foot { justify-content: space-between; }
+    .viewer-head { margin-bottom: 12px; }
+    .viewer-head h2 { font-size: clamp(17px, 2vw, 24px); line-height: 1.35; }
+    .control {
+      flex: none; min-height: 39px; padding: 6px 12px; color: var(--ink); border: 1px solid var(--line);
+      border-radius: 4px; background: #fff; font-size: 14px; line-height: 1.35;
     }
-    @media (max-width: 760px) {
-      .cards.three { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .jump { gap: 7px 16px; }
-      .masthead { padding: 16px 0; }
+    .control:hover { border-color: #788773; background: #f1f3ee; }
+    .viewer-image {
+      display: block; width: 100%; height: auto; max-height: calc(96vh - 140px);
+      max-height: calc(96dvh - 140px); object-fit: contain;
     }
-    @media (max-width: 590px) {
-      .cards, .cards.three { grid-template-columns: minmax(0,1fr); }
-      .jump { width: 100%; }
-      .formats a { padding: 6px 2px; }
-      .viewer-header button, .viewer-actions button { min-height: 42px; }
+    .viewer-foot { margin-top: 12px; flex-wrap: wrap; gap: 8px 14px; }
+    .pager { flex-wrap: nowrap; }
+    .position { min-width: 3.7em; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--muted); }
+    .viewer-files { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
+    .mode-selector { display: flex; align-items: center; gap: 5px; font-size: 14px; color: var(--muted); }
+    .mode-selector select { color: var(--ink); font: inherit; background-color: white; }
+    @media (max-width: 940px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 510px) {
+      .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .topbar { min-height: 55px; gap: 8px 14px; }
+      .wordmark span:first-child { font-size: 22px; }
+      .overviews { gap: 1px 13px; }
+      .overviews a, .source { font-size: 13px; }
+      .source { padding: 8px 0; }
+      .tabs { gap: 4px; }
+      .tabs button { flex: 1; min-height: 44px; padding-inline: 2px; font-size: 16px; white-space: nowrap; }
+      .viewer-foot { align-items: flex-start; }
+      .control { min-height: 42px; }
+      .viewer-image { max-height: calc(96dvh - 190px); }
     }
     @media print {
-      .jump, .formats, dialog, .zoom { display: none; }
-      .cards, .cards.three { grid-template-columns: repeat(2,minmax(0,1fr)); }
-      .palette-card { break-inside: avoid; }
-      .frame { padding: 0; }
+      .topbar, .tabs, .source, .zoom-hint, dialog { display: none !important; }
+      .mast { padding: 8px 0 16px; }
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .tile { break-inside: avoid; }
     }
   </style>
 </head>
 <body>
-  <div class="frame">
+  <div class="wrap">
     <header>
-      <div class="masthead">
-        <div class="brand"><span class="brand-name" lang="en">Graphical Abstract</span><span class="version">v0.2</span></div>
-        <nav class="jump" aria-label="跳至配色组"><a href="#original">v0.1 原配色</a><a href="#lettered">字母方案</a><a href="#numbered">编号方案</a></nav>
+      <div class="topbar">
+        <div class="wordmark" lang="en"><span>Graphical Abstract</span><span class="version">v0.2</span></div>
+        <nav class="overviews" aria-label="PNG 总览">
+          <a href="surfaces-overview.png" target="_blank" rel="noopener">配色示例总览（PNG）<span aria-hidden="true">↗</span></a>
+          <a href="cards-overview.png" target="_blank" rel="noopener">色卡总览（PNG）<span aria-hidden="true">↗</span></a>
+          <a href="schematics-overview.png" target="_blank" rel="noopener">示意图总览（PNG）<span aria-hidden="true">↗</span></a>
+        </nav>
       </div>
-      <div class="intro">
-        <h1>图形摘要配色图集</h1>
-        <p>在同一张 Transformer-DAPT 研究图上比较 11 套配色。点击成图可放大查看。</p>
-      </div>
+      <div class="mast"><h1>图形摘要配色图册</h1><p class="palette-count">11 套配色</p></div>
     </header>
     <main>
-      <section class="palette-group" id="original" aria-labelledby="original-title">
-        <h2 id="original-title">v0.1 原配色</h2>
-        <div class="cards">
-          <article class="palette-card">
-            <a class="preview" href="../v01-palettes/ehj-default.svg" aria-label="放大查看紫—酒红—橙" data-title="紫—酒红—橙">
-              <img src="../v01-palettes/ehj-default.svg" alt="紫—酒红—橙配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#7247A6,#DD7154,#FF861C)"></span>
-              <h3>紫—酒红—橙</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../v01-palettes/ehj-default.png" aria-label="打开紫—酒红—橙的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../v01-palettes/ehj-default.svg" aria-label="打开紫—酒红—橙的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../v01-palettes/blue-teal-jade.svg" aria-label="放大查看蓝—青—绿" data-title="蓝—青—绿">
-              <img src="../v01-palettes/blue-teal-jade.svg" alt="蓝—青—绿配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#244A78,#247371,#267667)"></span>
-              <h3>蓝—青—绿</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../v01-palettes/blue-teal-jade.png" aria-label="打开蓝—青—绿的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../v01-palettes/blue-teal-jade.svg" aria-label="打开蓝—青—绿的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../v01-palettes/indigo-violet.svg" aria-label="放大查看靛蓝—紫" data-title="靛蓝—紫">
-              <img src="../v01-palettes/indigo-violet.svg" alt="靛蓝—紫配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#273D72,#664789,#744687)"></span>
-              <h3>靛蓝—紫</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../v01-palettes/indigo-violet.png" aria-label="打开靛蓝—紫的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../v01-palettes/indigo-violet.svg" aria-label="打开靛蓝—紫的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../v01-palettes/burgundy-rose-gold.svg" aria-label="放大查看酒红—玫瑰—金" data-title="酒红—玫瑰—金">
-              <img src="../v01-palettes/burgundy-rose-gold.svg" alt="酒红—玫瑰—金配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#682F48,#925835,#91611F)"></span>
-              <h3>酒红—玫瑰—金</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../v01-palettes/burgundy-rose-gold.png" aria-label="打开酒红—玫瑰—金的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../v01-palettes/burgundy-rose-gold.svg" aria-label="打开酒红—玫瑰—金的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
+      <div class="tabs" role="tablist" aria-label="图册视图" hidden>
+        <button type="button" id="tab-surfaces" role="tab" aria-selected="true" aria-controls="panel-surfaces" data-mode="surfaces">配色示例</button>
+        <button type="button" id="tab-cards" role="tab" aria-selected="false" aria-controls="panel-cards" tabindex="-1" data-mode="cards">数字色卡</button>
+        <button type="button" id="tab-schematics" role="tab" aria-selected="false" aria-controls="panel-schematics" tabindex="-1" data-mode="schematics">极简示意图</button>
+      </div>
+      <section id="panel-surfaces" aria-labelledby="heading-surfaces" data-mode="surfaces">
+        <h2 id="heading-surfaces" class="fallback-title">配色示例</h2>
+        <div class="grid">
+      <article class="tile" data-number="1" data-name="EHJ 紫—酒红—橙">
+        <a class="preview" href="surfaces/01.svg" aria-label="放大查看1 号 · EHJ 紫—酒红—橙 · 配色示例">
+          <img src="surfaces/01.svg" width="1605" height="980" alt="1 号 · EHJ 紫—酒红—橙 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">1 · EHJ 紫—酒红—橙</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/01.svg" target="_blank" rel="noopener" aria-label="用新标签页打开1 号 · EHJ 紫—酒红—橙 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/01.png" target="_blank" rel="noopener" aria-label="用新标签页打开1 号 · EHJ 紫—酒红—橙 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="2" data-name="蓝—青—绿">
+        <a class="preview" href="surfaces/02.svg" aria-label="放大查看2 号 · 蓝—青—绿 · 配色示例">
+          <img src="surfaces/02.svg" width="1605" height="980" alt="2 号 · 蓝—青—绿 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">2 · 蓝—青—绿</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/02.svg" target="_blank" rel="noopener" aria-label="用新标签页打开2 号 · 蓝—青—绿 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/02.png" target="_blank" rel="noopener" aria-label="用新标签页打开2 号 · 蓝—青—绿 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="3" data-name="靛蓝—紫">
+        <a class="preview" href="surfaces/03.svg" aria-label="放大查看3 号 · 靛蓝—紫 · 配色示例">
+          <img src="surfaces/03.svg" width="1605" height="980" alt="3 号 · 靛蓝—紫 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">3 · 靛蓝—紫</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/03.svg" target="_blank" rel="noopener" aria-label="用新标签页打开3 号 · 靛蓝—紫 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/03.png" target="_blank" rel="noopener" aria-label="用新标签页打开3 号 · 靛蓝—紫 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="4" data-name="酒红—玫瑰—金">
+        <a class="preview" href="surfaces/04.svg" aria-label="放大查看4 号 · 酒红—玫瑰—金 · 配色示例">
+          <img src="surfaces/04.svg" width="1605" height="980" alt="4 号 · 酒红—玫瑰—金 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">4 · 酒红—玫瑰—金</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/04.svg" target="_blank" rel="noopener" aria-label="用新标签页打开4 号 · 酒红—玫瑰—金 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/04.png" target="_blank" rel="noopener" aria-label="用新标签页打开4 号 · 酒红—玫瑰—金 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="5" data-name="松针绿—鼠尾草">
+        <a class="preview" href="surfaces/05.svg" aria-label="放大查看5 号 · 松针绿—鼠尾草 · 配色示例">
+          <img src="surfaces/05.svg" width="1605" height="980" alt="5 号 · 松针绿—鼠尾草 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">5 · 松针绿—鼠尾草</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/05.svg" target="_blank" rel="noopener" aria-label="用新标签页打开5 号 · 松针绿—鼠尾草 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/05.png" target="_blank" rel="noopener" aria-label="用新标签页打开5 号 · 松针绿—鼠尾草 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="6" data-name="墨蓝—珊瑚">
+        <a class="preview" href="surfaces/06.svg" aria-label="放大查看6 号 · 墨蓝—珊瑚 · 配色示例">
+          <img src="surfaces/06.svg" width="1605" height="980" alt="6 号 · 墨蓝—珊瑚 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">6 · 墨蓝—珊瑚</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/06.svg" target="_blank" rel="noopener" aria-label="用新标签页打开6 号 · 墨蓝—珊瑚 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/06.png" target="_blank" rel="noopener" aria-label="用新标签页打开6 号 · 墨蓝—珊瑚 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="7" data-name="桑葚—丁香">
+        <a class="preview" href="surfaces/07.svg" aria-label="放大查看7 号 · 桑葚—丁香 · 配色示例">
+          <img src="surfaces/07.svg" width="1605" height="980" alt="7 号 · 桑葚—丁香 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">7 · 桑葚—丁香</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/07.svg" target="_blank" rel="noopener" aria-label="用新标签页打开7 号 · 桑葚—丁香 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/07.png" target="_blank" rel="noopener" aria-label="用新标签页打开7 号 · 桑葚—丁香 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="8" data-name="深海蓝 × 砖红">
+        <a class="preview" href="surfaces/08.svg" aria-label="放大查看8 号 · 深海蓝 × 砖红 · 配色示例">
+          <img src="surfaces/08.svg" width="1605" height="980" alt="8 号 · 深海蓝 × 砖红 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">8 · 深海蓝 × 砖红</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/08.svg" target="_blank" rel="noopener" aria-label="用新标签页打开8 号 · 深海蓝 × 砖红 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/08.png" target="_blank" rel="noopener" aria-label="用新标签页打开8 号 · 深海蓝 × 砖红 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="9" data-name="藏青 × 琥珀金棕">
+        <a class="preview" href="surfaces/09.svg" aria-label="放大查看9 号 · 藏青 × 琥珀金棕 · 配色示例">
+          <img src="surfaces/09.svg" width="1605" height="980" alt="9 号 · 藏青 × 琥珀金棕 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">9 · 藏青 × 琥珀金棕</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/09.svg" target="_blank" rel="noopener" aria-label="用新标签页打开9 号 · 藏青 × 琥珀金棕 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/09.png" target="_blank" rel="noopener" aria-label="用新标签页打开9 号 · 藏青 × 琥珀金棕 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="10" data-name="深铁灰 × 靛蓝">
+        <a class="preview" href="surfaces/10.svg" aria-label="放大查看10 号 · 深铁灰 × 靛蓝 · 配色示例">
+          <img src="surfaces/10.svg" width="1605" height="980" alt="10 号 · 深铁灰 × 靛蓝 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">10 · 深铁灰 × 靛蓝</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/10.svg" target="_blank" rel="noopener" aria-label="用新标签页打开10 号 · 深铁灰 × 靛蓝 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/10.png" target="_blank" rel="noopener" aria-label="用新标签页打开10 号 · 深铁灰 × 靛蓝 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="11" data-name="深靛青 × 烟熏洋红">
+        <a class="preview" href="surfaces/11.svg" aria-label="放大查看11 号 · 深靛青 × 烟熏洋红 · 配色示例">
+          <img src="surfaces/11.svg" width="1605" height="980" alt="11 号 · 深靛青 × 烟熏洋红 · 配色示例" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta"><h3 class="tile-title">11 · 深靛青 × 烟熏洋红</h3>
+          <div class="tile-links">
+            <a class="source svg-source" href="surfaces/11.svg" target="_blank" rel="noopener" aria-label="用新标签页打开11 号 · 深靛青 × 烟熏洋红 · 配色示例的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            <a class="source png-source" href="surfaces/11.png" target="_blank" rel="noopener" aria-label="用新标签页打开11 号 · 深靛青 × 烟熏洋红 · 配色示例的 PNG">打开 PNG <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
         </div>
       </section>
-      <section class="palette-group" id="lettered" aria-labelledby="lettered-title">
-        <h2 id="lettered-title">字母方案 B / C / D</h2>
-        <div class="cards three">
-          <article class="palette-card">
-            <a class="preview" href="../color-options/B-pine-sage.svg" aria-label="放大查看B · 松针绿—鼠尾草" data-title="B · 松针绿—鼠尾草">
-              <img src="../color-options/B-pine-sage.svg" alt="B · 松针绿—鼠尾草配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#0A2B1F,#326246,#547A4A)"></span>
-              <h3>B · 松针绿—鼠尾草</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../color-options/B-pine-sage.png" aria-label="打开B · 松针绿—鼠尾草的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../color-options/B-pine-sage.svg" aria-label="打开B · 松针绿—鼠尾草的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../color-options/C-ink-coral.svg" aria-label="放大查看C · 墨蓝—珊瑚" data-title="C · 墨蓝—珊瑚">
-              <img src="../color-options/C-ink-coral.svg" alt="C · 墨蓝—珊瑚配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#0B1C32,#764361,#A64D48)"></span>
-              <h3>C · 墨蓝—珊瑚</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../color-options/C-ink-coral.png" aria-label="打开C · 墨蓝—珊瑚的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../color-options/C-ink-coral.svg" aria-label="打开C · 墨蓝—珊瑚的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../color-options/D-mulberry-lilac.svg" aria-label="放大查看D · 桑葚—丁香" data-title="D · 桑葚—丁香">
-              <img src="../color-options/D-mulberry-lilac.svg" alt="D · 桑葚—丁香配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#572041,#614585,#504F94)"></span>
-              <h3>D · 桑葚—丁香</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../color-options/D-mulberry-lilac.png" aria-label="打开D · 桑葚—丁香的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../color-options/D-mulberry-lilac.svg" aria-label="打开D · 桑葚—丁香的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
+      <section id="panel-cards" aria-labelledby="heading-cards" data-mode="cards">
+        <h2 id="heading-cards" class="fallback-title">数字色卡</h2>
+        <div class="grid">
+      <article class="tile" data-number="1" data-name="EHJ 紫—酒红—橙">
+        <a class="preview" href="cards/01.svg" aria-label="放大查看1 号 · EHJ 紫—酒红—橙 · 数字色卡">
+          <img src="cards/01.svg" width="680" height="420" alt="1 号 · EHJ 紫—酒红—橙 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/01.svg" target="_blank" rel="noopener" aria-label="用新标签页打开1 号 · EHJ 紫—酒红—橙 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="2" data-name="蓝—青—绿">
+        <a class="preview" href="cards/02.svg" aria-label="放大查看2 号 · 蓝—青—绿 · 数字色卡">
+          <img src="cards/02.svg" width="680" height="420" alt="2 号 · 蓝—青—绿 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/02.svg" target="_blank" rel="noopener" aria-label="用新标签页打开2 号 · 蓝—青—绿 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="3" data-name="靛蓝—紫">
+        <a class="preview" href="cards/03.svg" aria-label="放大查看3 号 · 靛蓝—紫 · 数字色卡">
+          <img src="cards/03.svg" width="680" height="420" alt="3 号 · 靛蓝—紫 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/03.svg" target="_blank" rel="noopener" aria-label="用新标签页打开3 号 · 靛蓝—紫 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="4" data-name="酒红—玫瑰—金">
+        <a class="preview" href="cards/04.svg" aria-label="放大查看4 号 · 酒红—玫瑰—金 · 数字色卡">
+          <img src="cards/04.svg" width="680" height="420" alt="4 号 · 酒红—玫瑰—金 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/04.svg" target="_blank" rel="noopener" aria-label="用新标签页打开4 号 · 酒红—玫瑰—金 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="5" data-name="松针绿—鼠尾草">
+        <a class="preview" href="cards/05.svg" aria-label="放大查看5 号 · 松针绿—鼠尾草 · 数字色卡">
+          <img src="cards/05.svg" width="680" height="420" alt="5 号 · 松针绿—鼠尾草 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/05.svg" target="_blank" rel="noopener" aria-label="用新标签页打开5 号 · 松针绿—鼠尾草 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="6" data-name="墨蓝—珊瑚">
+        <a class="preview" href="cards/06.svg" aria-label="放大查看6 号 · 墨蓝—珊瑚 · 数字色卡">
+          <img src="cards/06.svg" width="680" height="420" alt="6 号 · 墨蓝—珊瑚 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/06.svg" target="_blank" rel="noopener" aria-label="用新标签页打开6 号 · 墨蓝—珊瑚 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="7" data-name="桑葚—丁香">
+        <a class="preview" href="cards/07.svg" aria-label="放大查看7 号 · 桑葚—丁香 · 数字色卡">
+          <img src="cards/07.svg" width="680" height="420" alt="7 号 · 桑葚—丁香 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/07.svg" target="_blank" rel="noopener" aria-label="用新标签页打开7 号 · 桑葚—丁香 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="8" data-name="深海蓝 × 砖红">
+        <a class="preview" href="cards/08.svg" aria-label="放大查看8 号 · 深海蓝 × 砖红 · 数字色卡">
+          <img src="cards/08.svg" width="680" height="420" alt="8 号 · 深海蓝 × 砖红 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/08.svg" target="_blank" rel="noopener" aria-label="用新标签页打开8 号 · 深海蓝 × 砖红 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="9" data-name="藏青 × 琥珀金棕">
+        <a class="preview" href="cards/09.svg" aria-label="放大查看9 号 · 藏青 × 琥珀金棕 · 数字色卡">
+          <img src="cards/09.svg" width="680" height="420" alt="9 号 · 藏青 × 琥珀金棕 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/09.svg" target="_blank" rel="noopener" aria-label="用新标签页打开9 号 · 藏青 × 琥珀金棕 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="10" data-name="深铁灰 × 靛蓝">
+        <a class="preview" href="cards/10.svg" aria-label="放大查看10 号 · 深铁灰 × 靛蓝 · 数字色卡">
+          <img src="cards/10.svg" width="680" height="420" alt="10 号 · 深铁灰 × 靛蓝 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/10.svg" target="_blank" rel="noopener" aria-label="用新标签页打开10 号 · 深铁灰 × 靛蓝 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="11" data-name="深靛青 × 烟熏洋红">
+        <a class="preview" href="cards/11.svg" aria-label="放大查看11 号 · 深靛青 × 烟熏洋红 · 数字色卡">
+          <img src="cards/11.svg" width="680" height="420" alt="11 号 · 深靛青 × 烟熏洋红 · 数字色卡" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="cards/11.svg" target="_blank" rel="noopener" aria-label="用新标签页打开11 号 · 深靛青 × 烟熏洋红 · 数字色卡的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
         </div>
       </section>
-      <section class="palette-group" id="numbered" aria-labelledby="numbered-title">
-        <h2 id="numbered-title">编号方案 1 / 2 / 4 / 5</h2>
-        <div class="cards">
-          <article class="palette-card">
-            <a class="preview" href="../reference-palettes/1-navy-brick.svg" aria-label="放大查看1 · 海军蓝—砖红" data-title="1 · 海军蓝—砖红">
-              <img src="../reference-palettes/1-navy-brick.svg" alt="1 · 海军蓝—砖红配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#0B1934,#853C4D,#C0392B)"></span>
-              <h3>1 · 海军蓝—砖红</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../reference-palettes/1-navy-brick.png" aria-label="打开1 · 海军蓝—砖红的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../reference-palettes/1-navy-brick.svg" aria-label="打开1 · 海军蓝—砖红的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../reference-palettes/2-navy-amber.svg" aria-label="放大查看2 · 深蓝灰—琥珀" data-title="2 · 深蓝灰—琥珀">
-              <img src="../reference-palettes/2-navy-amber.svg" alt="2 · 深蓝灰—琥珀配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#142233,#75513E,#A3660E)"></span>
-              <h3>2 · 深蓝灰—琥珀</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../reference-palettes/2-navy-amber.png" aria-label="打开2 · 深蓝灰—琥珀的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../reference-palettes/2-navy-amber.svg" aria-label="打开2 · 深蓝灰—琥珀的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../reference-palettes/4-iron-steel.svg" aria-label="放大查看4 · 铁灰—钢蓝" data-title="4 · 铁灰—钢蓝">
-              <img src="../reference-palettes/4-iron-steel.svg" alt="4 · 铁灰—钢蓝配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#151729,#3A4B75,#4A6FA5)"></span>
-              <h3>4 · 铁灰—钢蓝</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../reference-palettes/4-iron-steel.png" aria-label="打开4 · 铁灰—钢蓝的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../reference-palettes/4-iron-steel.svg" aria-label="打开4 · 铁灰—钢蓝的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
-          <article class="palette-card">
-            <a class="preview" href="../reference-palettes/5-indigo-berry.svg" aria-label="放大查看5 · 靛蓝—莓红" data-title="5 · 靛蓝—莓红">
-              <img src="../reference-palettes/5-indigo-berry.svg" alt="5 · 靛蓝—莓红配色的 Transformer-DAPT 图形摘要" width="1800" height="1100" decoding="async">
-              <span class="zoom" aria-hidden="true">放大 ↗</span>
-            </a>
-            <div class="caption">
-              <span class="swatch" aria-hidden="true" style="background:linear-gradient(90deg,#1B203D,#723D65,#A04668)"></span>
-              <h3>5 · 靛蓝—莓红</h3>
-              <span class="formats" aria-label="图像文件">
-                <a class="png-link" href="../reference-palettes/5-indigo-berry.png" aria-label="打开5 · 靛蓝—莓红的 PNG 文件">PNG</a>
-                <a class="svg-link" href="../reference-palettes/5-indigo-berry.svg" aria-label="打开5 · 靛蓝—莓红的 SVG 文件">SVG</a>
-              </span>
-            </div>
-          </article>
+      <section id="panel-schematics" aria-labelledby="heading-schematics" data-mode="schematics">
+        <h2 id="heading-schematics" class="fallback-title">极简示意图</h2>
+        <div class="grid">
+      <article class="tile" data-number="1" data-name="EHJ 紫—酒红—橙">
+        <a class="preview" href="schematics/01.svg" aria-label="放大查看1 号 · EHJ 紫—酒红—橙 · 极简示意图">
+          <img src="schematics/01.svg" width="680" height="420" alt="1 号 · EHJ 紫—酒红—橙 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/01.svg" target="_blank" rel="noopener" aria-label="用新标签页打开1 号 · EHJ 紫—酒红—橙 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="2" data-name="蓝—青—绿">
+        <a class="preview" href="schematics/02.svg" aria-label="放大查看2 号 · 蓝—青—绿 · 极简示意图">
+          <img src="schematics/02.svg" width="680" height="420" alt="2 号 · 蓝—青—绿 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/02.svg" target="_blank" rel="noopener" aria-label="用新标签页打开2 号 · 蓝—青—绿 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="3" data-name="靛蓝—紫">
+        <a class="preview" href="schematics/03.svg" aria-label="放大查看3 号 · 靛蓝—紫 · 极简示意图">
+          <img src="schematics/03.svg" width="680" height="420" alt="3 号 · 靛蓝—紫 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/03.svg" target="_blank" rel="noopener" aria-label="用新标签页打开3 号 · 靛蓝—紫 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="4" data-name="酒红—玫瑰—金">
+        <a class="preview" href="schematics/04.svg" aria-label="放大查看4 号 · 酒红—玫瑰—金 · 极简示意图">
+          <img src="schematics/04.svg" width="680" height="420" alt="4 号 · 酒红—玫瑰—金 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/04.svg" target="_blank" rel="noopener" aria-label="用新标签页打开4 号 · 酒红—玫瑰—金 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="5" data-name="松针绿—鼠尾草">
+        <a class="preview" href="schematics/05.svg" aria-label="放大查看5 号 · 松针绿—鼠尾草 · 极简示意图">
+          <img src="schematics/05.svg" width="680" height="420" alt="5 号 · 松针绿—鼠尾草 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/05.svg" target="_blank" rel="noopener" aria-label="用新标签页打开5 号 · 松针绿—鼠尾草 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="6" data-name="墨蓝—珊瑚">
+        <a class="preview" href="schematics/06.svg" aria-label="放大查看6 号 · 墨蓝—珊瑚 · 极简示意图">
+          <img src="schematics/06.svg" width="680" height="420" alt="6 号 · 墨蓝—珊瑚 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/06.svg" target="_blank" rel="noopener" aria-label="用新标签页打开6 号 · 墨蓝—珊瑚 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="7" data-name="桑葚—丁香">
+        <a class="preview" href="schematics/07.svg" aria-label="放大查看7 号 · 桑葚—丁香 · 极简示意图">
+          <img src="schematics/07.svg" width="680" height="420" alt="7 号 · 桑葚—丁香 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/07.svg" target="_blank" rel="noopener" aria-label="用新标签页打开7 号 · 桑葚—丁香 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="8" data-name="深海蓝 × 砖红">
+        <a class="preview" href="schematics/08.svg" aria-label="放大查看8 号 · 深海蓝 × 砖红 · 极简示意图">
+          <img src="schematics/08.svg" width="680" height="420" alt="8 号 · 深海蓝 × 砖红 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/08.svg" target="_blank" rel="noopener" aria-label="用新标签页打开8 号 · 深海蓝 × 砖红 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="9" data-name="藏青 × 琥珀金棕">
+        <a class="preview" href="schematics/09.svg" aria-label="放大查看9 号 · 藏青 × 琥珀金棕 · 极简示意图">
+          <img src="schematics/09.svg" width="680" height="420" alt="9 号 · 藏青 × 琥珀金棕 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/09.svg" target="_blank" rel="noopener" aria-label="用新标签页打开9 号 · 藏青 × 琥珀金棕 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="10" data-name="深铁灰 × 靛蓝">
+        <a class="preview" href="schematics/10.svg" aria-label="放大查看10 号 · 深铁灰 × 靛蓝 · 极简示意图">
+          <img src="schematics/10.svg" width="680" height="420" alt="10 号 · 深铁灰 × 靛蓝 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/10.svg" target="_blank" rel="noopener" aria-label="用新标签页打开10 号 · 深铁灰 × 靛蓝 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
+      <article class="tile" data-number="11" data-name="深靛青 × 烟熏洋红">
+        <a class="preview" href="schematics/11.svg" aria-label="放大查看11 号 · 深靛青 × 烟熏洋红 · 极简示意图">
+          <img src="schematics/11.svg" width="680" height="420" alt="11 号 · 深靛青 × 烟熏洋红 · 极简示意图" decoding="async">
+          <span class="zoom-hint" aria-hidden="true">放大</span>
+        </a>
+        <div class="tile-meta">
+          <div class="tile-links">
+            <a class="source svg-source" href="schematics/11.svg" target="_blank" rel="noopener" aria-label="用新标签页打开11 号 · 深靛青 × 烟熏洋红 · 极简示意图的 SVG">打开 SVG <span aria-hidden="true">↗</span></a>
+            
+          </div>
+        </div>
+      </article>
         </div>
       </section>
     </main>
   </div>
-
   <dialog id="viewer" aria-labelledby="viewer-title">
     <div class="viewer-body">
-      <div class="viewer-header">
+      <div class="viewer-head">
         <h2 id="viewer-title" aria-live="polite"></h2>
-        <button type="button" id="close-viewer" aria-label="关闭放大预览">关闭</button>
+        <button class="control" type="button" id="close" autofocus>关闭</button>
       </div>
-      <img id="large-image" class="viewer-image" alt="" width="1800" height="1100">
-      <div class="viewer-footer">
-        <div class="viewer-actions">
-          <button type="button" id="previous" aria-label="查看上一套配色">上一套</button>
-          <span id="position" class="counter"></span>
-          <button type="button" id="next" aria-label="查看下一套配色">下一套</button>
+      <img class="viewer-image" id="viewer-image" alt="">
+      <div class="viewer-foot">
+        <div class="viewer-files">
+          <label class="mode-selector">视图
+            <select class="control" id="viewer-mode" aria-label="当前配色的视图"></select>
+          </label>
+          <a class="open-original" id="original" target="_blank" rel="noopener">打开 SVG <span aria-hidden="true">↗</span></a>
+          <a class="open-original" id="original-png" target="_blank" rel="noopener" hidden>打开 PNG <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="formats"><a id="open-png">PNG</a><a id="open-svg">SVG</a></div>
+        <div class="pager" aria-label="切换配色">
+          <button class="control" id="previous" type="button">上一个</button>
+          <span class="position" id="position"></span>
+          <button class="control" id="next" type="button">下一个</button>
+        </div>
       </div>
     </div>
   </dialog>
   <script>
-    const dialog = document.getElementById('viewer');
-    const previews = Array.from(document.querySelectorAll('.preview'));
-    const dismiss = document.getElementById('close-viewer');
-    let active = 0;
-    let opener = null;
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('main section[data-mode]'));
+      const viewer = document.getElementById('viewer');
+      const image = document.getElementById('viewer-image');
+      const viewerMode = document.getElementById('viewer-mode');
+      let mode = tabs[0].dataset.mode;
+      let index = 0;
 
-    function showPalette(index) {
-      active = (index + previews.length) % previews.length;
-      const preview = previews[active];
-      const title = preview.dataset.title;
-      const card = preview.closest('.palette-card');
-      const image = document.getElementById('large-image');
-      image.src = preview.href;
-      image.alt = title + '配色的 Transformer-DAPT 图形摘要';
-      document.getElementById('viewer-title').textContent = title;
-      document.getElementById('position').textContent = (active + 1) + ' / ' + previews.length;
-      for (const format of ['png', 'svg']) {
-        const link = document.getElementById('open-' + format);
-        link.href = card.querySelector('.' + format + '-link').href;
-        link.setAttribute('aria-label', '打开' + title + '的 ' + format.toUpperCase() + ' 文件');
+      function chooseMode(key) {
+        mode = key;
+        for (const tab of tabs) {
+          const active = tab.dataset.mode === mode;
+          tab.setAttribute('aria-selected', String(active));
+          tab.tabIndex = active ? 0 : -1;
+        }
+        for (const panel of panels) {
+          panel.hidden = panel.dataset.mode !== mode;
+          panel.setAttribute('role', 'tabpanel');
+          panel.setAttribute('aria-labelledby', 'tab-' + panel.dataset.mode);
+        }
       }
-    }
+      function tiles() {
+        return document.querySelectorAll('#panel-' + mode + ' .tile');
+      }
+      function modeLabel(key) {
+        return document.getElementById('tab-' + key).textContent;
+      }
+      function renderViewer() {
+        const entries = tiles();
+        const tile = entries[index];
+        const src = tile.querySelector('.svg-source').getAttribute('href');
+        const title = tile.dataset.number + ' 号 · ' + tile.dataset.name;
+        const label = title + ' · ' + modeLabel(mode);
+        document.getElementById('viewer-title').textContent = title;
+        image.alt = label;
+        image.src = src;
+        document.getElementById('original').setAttribute('href', src);
+        document.getElementById('original').setAttribute('aria-label', '用新标签页打开' + label + '的 SVG');
+        const pngLink = document.getElementById('original-png');
+        const pngFile = tile.querySelector('.png-source');
+        pngLink.hidden = !pngFile;
+        if (pngFile) {
+          pngLink.setAttribute('href', pngFile.getAttribute('href'));
+          pngLink.setAttribute('aria-label', pngFile.getAttribute('aria-label'));
+        } else {
+          pngLink.removeAttribute('href');
+          pngLink.removeAttribute('aria-label');
+        }
+        viewerMode.value = mode;
+        document.getElementById('position').textContent = (index + 1) + ' / ' + entries.length;
+      }
+      function move(direction) {
+        index = (index + direction + tiles().length) % tiles().length;
+        renderViewer();
+      }
 
-    if (typeof dialog.showModal === 'function') {
-      previews.forEach((preview, index) => {
-        preview.addEventListener('click', event => {
-          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      for (const [i, tab] of tabs.entries()) {
+        viewerMode.add(new Option(tab.textContent, tab.dataset.mode));
+        tab.addEventListener('click', () => chooseMode(tab.dataset.mode));
+        tab.addEventListener('keydown', event => {
+          const directions = { ArrowLeft: -1, ArrowRight: 1 };
+          let target;
+          if (event.key in directions) target = (i + directions[event.key] + tabs.length) % tabs.length;
+          else if (event.key === 'Home') target = 0;
+          else if (event.key === 'End') target = tabs.length - 1;
+          else return;
           event.preventDefault();
-          opener = preview;
-          showPalette(index);
-          dialog.showModal();
-          dismiss.focus();
+          chooseMode(tabs[target].dataset.mode);
+          tabs[target].focus();
         });
-      });
-      dismiss.addEventListener('click', () => dialog.close());
-      document.getElementById('previous').addEventListener('click', () => showPalette(active - 1));
-      document.getElementById('next').addEventListener('click', () => showPalette(active + 1));
-      dialog.addEventListener('keydown', event => {
+      }
+      for (const panel of panels) {
+        for (const [i, link] of Array.from(panel.querySelectorAll('.preview')).entries()) {
+          link.addEventListener('click', event => {
+            if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey ||
+                typeof viewer.showModal !== 'function') return;
+            event.preventDefault();
+            index = i;
+            renderViewer();
+            viewer.showModal();
+          });
+        }
+      }
+      viewer.addEventListener('keydown', event => {
+        if (event.target === viewerMode) return;
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
           event.preventDefault();
-          showPalette(active + (event.key === 'ArrowLeft' ? -1 : 1));
+          move(event.key === 'ArrowLeft' ? -1 : 1);
         }
       });
-      dialog.addEventListener('click', event => {
-        if (event.target === dialog) dialog.close();
+      viewer.addEventListener('click', event => {
+        if (event.target !== viewer) return;
+        const { left, right, top, bottom } = viewer.getBoundingClientRect();
+        if (event.clientX < left || event.clientX > right || event.clientY < top || event.clientY > bottom) viewer.close();
       });
-      dialog.addEventListener('close', () => {
-        if (opener) opener.focus({preventScroll: true});
+      viewer.addEventListener('close', () => tiles()[index].querySelector('.preview').focus());
+      document.getElementById('previous').addEventListener('click', () => move(-1));
+      document.getElementById('next').addEventListener('click', () => move(1));
+      viewerMode.addEventListener('change', () => {
+        chooseMode(viewerMode.value);
+        renderViewer();
       });
-    }
+      document.getElementById('close').addEventListener('click', () => viewer.close());
+      chooseMode(mode);
+      document.documentElement.classList.add('enhanced');
+      document.querySelector('[role="tablist"]').hidden = false;
+    })();
   </script>
 </body>
 </html>
+

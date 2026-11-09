@@ -2,7 +2,7 @@
   "schema_version": 1,
   "palettes": {
     "pine-sage": {
-      "option": "B",
+      "atlas_number": 5,
       "name": "Pine and sage",
       "name_zh": "松针绿—鼠尾草",
       "gradient_roles": {
@@ -317,10 +317,12 @@
         "primary": "#28603E",
         "comparator": "#424A40",
         "secondary": "#586F45"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/color-options/B-pine-sage.svg",
+      "example_png": "examples/transformer-dapt/color-options/B-pine-sage.png"
     },
     "ink-coral": {
-      "option": "C",
+      "atlas_number": 6,
       "name": "Midnight ink and coral",
       "name_zh": "墨蓝—珊瑚",
       "gradient_roles": {
@@ -635,10 +637,12 @@
         "primary": "#213C60",
         "comparator": "#96373E",
         "secondary": "#73516A"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/color-options/C-ink-coral.svg",
+      "example_png": "examples/transformer-dapt/color-options/C-ink-coral.png"
     },
     "mulberry-lilac": {
-      "option": "D",
+      "atlas_number": 7,
       "name": "Mulberry and lilac",
       "name_zh": "桑葚—丁香",
       "gradient_roles": {
@@ -933,7 +937,9 @@
         "primary": "#75254B",
         "comparator": "#534881",
         "secondary": "#694D74"
-      }
+      },
+      "example_svg": "examples/transformer-dapt/color-options/D-mulberry-lilac.svg",
+      "example_png": "examples/transformer-dapt/color-options/D-mulberry-lilac.png"
     }
   }
 }

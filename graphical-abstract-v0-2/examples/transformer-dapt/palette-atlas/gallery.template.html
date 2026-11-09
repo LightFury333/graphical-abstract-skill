@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>图形摘要配色图册 · Graphical Abstract v0.2</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f8f5;
+      --ink: #242921;
+      --muted: #596058;
+      --line: #ccd0c8;
+      --focus: #236142;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body, h1, h2, p { margin: 0; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; color: inherit; cursor: pointer; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+    .wrap { max-width: 1660px; padding: 0 clamp(18px, 4.3vw, 76px); margin: auto; }
+    .topbar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+      gap: 10px 24px; min-height: 70px; padding: 12px 0; border-bottom: 1px solid var(--line);
+    }
+    .wordmark { display: flex; align-items: baseline; gap: 9px; white-space: nowrap; }
+    .wordmark span:first-child { font: 600 25px/1.15 Georgia, "Times New Roman", serif; letter-spacing: -.045em; }
+    .version { font-size: 12px; color: var(--muted); }
+    .overviews { display: flex; flex-wrap: wrap; gap: 2px 23px; }
+    .overviews a, .open-original { font-size: 14px; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .overviews a { padding: 7px 0; text-decoration-color: transparent; }
+    .overviews a:hover, .open-original:hover { text-decoration-color: currentColor; }
+    .mast { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 22px; padding: clamp(28px, 4.6vw, 66px) 0 clamp(19px, 2.6vw, 34px); }
+    h1 { font: 600 clamp(32px, 4.1vw, 63px)/1.2 "Songti SC", "STSong", "Noto Serif CJK SC", "SimSun", serif; }
+    .palette-count { color: var(--muted); font-size: 15px; }
+    .tabs { display: flex; gap: clamp(8px, 2vw, 28px); margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .tabs button {
+      position: relative; padding: 11px 6px 13px; border: none;
+      background: transparent; color: var(--muted); font-size: 17px; line-height: 1.4;
+    }
+    .tabs button[aria-selected="true"] { color: var(--ink); font-weight: 600; }
+    .tabs button[aria-selected="true"]::after {
+      position: absolute; inset: auto 0 -1px; height: 3px; background: var(--ink); content: "";
+    }
+    main { padding-bottom: 44px; }
+    .fallback-title { font-size: 21px; margin: 0 0 12px; }
+    .enhanced .fallback-title { display: none; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px clamp(12px, 1.4vw, 24px); }
+    .tile { min-width: 0; display: flex; flex-direction: column; }
+    .preview {
+      position: relative; display: block; overflow: hidden; background: white;
+      border: 1px solid var(--line); border-radius: 4px; cursor: zoom-in;
+    }
+    .preview:hover, .preview:focus-visible { border-color: #697267; }
+    .preview img { display: block; width: 100%; height: auto; }
+    .zoom-hint {
+      position: absolute; bottom: 8px; right: 8px; padding: 3px 8px;
+      border: 1px solid #ccd0c8; border-radius: 3px; color: var(--ink);
+      background: #fffffff2; font-size: 12px; opacity: 0;
+    }
+    .preview:hover .zoom-hint, .preview:focus-visible .zoom-hint { opacity: 1; }
+    .tile-meta { display: flex; align-items: baseline; justify-content: flex-end; flex-wrap: wrap; gap: 0 8px; }
+    .tile-title { margin: 0 auto 0 0; padding: 6px 0; font-size: 15px; line-height: 1.4; font-weight: 600; }
+    .tile-links { display: flex; align-items: baseline; gap: 10px; }
+    .source { flex: none; padding: 6px 2px; color: var(--muted); font-size: 12px; text-decoration: none; }
+    .source:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+    dialog {
+      width: min(1160px, 94vw); max-width: 100vw;
+      max-height: 96vh; max-height: 96dvh; margin: auto; padding: 0;
+      color: var(--ink); background: var(--paper); border: 1px solid #bfc5bd; border-radius: 7px;
+    }
+    dialog::backdrop { background: #172019c7; }
+    body:has(dialog[open]) { overflow: hidden; }
+    .viewer-body { padding: clamp(12px, 1.6vw, 22px); }
+    .viewer-head, .viewer-foot, .pager { display: flex; align-items: center; gap: 8px; }
+    .viewer-head, .viewer-foot { justify-content: space-between; }
+    .viewer-head { margin-bottom: 12px; }
+    .viewer-head h2 { font-size: clamp(17px, 2vw, 24px); line-height: 1.35; }
+    .control {
+      flex: none; min-height: 39px; padding: 6px 12px; color: var(--ink); border: 1px solid var(--line);
+      border-radius: 4px; background: #fff; font-size: 14px; line-height: 1.35;
+    }
+    .control:hover { border-color: #788773; background: #f1f3ee; }
+    .viewer-image {
+      display: block; width: 100%; height: auto; max-height: calc(96vh - 140px);
+      max-height: calc(96dvh - 140px); object-fit: contain;
+    }
+    .viewer-foot { margin-top: 12px; flex-wrap: wrap; gap: 8px 14px; }
+    .pager { flex-wrap: nowrap; }
+    .position { min-width: 3.7em; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--muted); }
+    .viewer-files { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
+    .mode-selector { display: flex; align-items: center; gap: 5px; font-size: 14px; color: var(--muted); }
+    .mode-selector select { color: var(--ink); font: inherit; background-color: white; }
+    @media (max-width: 940px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 510px) {
+      .grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+      .topbar { min-height: 55px; gap: 8px 14px; }
+      .wordmark span:first-child { font-size: 22px; }
+      .overviews { gap: 1px 13px; }
+      .overviews a, .source { font-size: 13px; }
+      .source { padding: 8px 0; }
+      .tabs { gap: 4px; }
+      .tabs button { flex: 1; min-height: 44px; padding-inline: 2px; font-size: 16px; white-space: nowrap; }
+      .viewer-foot { align-items: flex-start; }
+      .control { min-height: 42px; }
+      .viewer-image { max-height: calc(96dvh - 190px); }
+    }
+    @media print {
+      .topbar, .tabs, .source, .zoom-hint, dialog { display: none !important; }
+      .mast { padding: 8px 0 16px; }
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .tile { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="topbar">
+        <div class="wordmark" lang="en"><span>Graphical Abstract</span><span class="version">v0.2</span></div>
+        <nav class="overviews" aria-label="PNG 总览">
+          <a href="surfaces-overview.png" target="_blank" rel="noopener">配色示例总览（PNG）<span aria-hidden="true">↗</span></a>
+          <a href="cards-overview.png" target="_blank" rel="noopener">色卡总览（PNG）<span aria-hidden="true">↗</span></a>
+          <a href="schematics-overview.png" target="_blank" rel="noopener">示意图总览（PNG）<span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+      <div class="mast"><h1>图形摘要配色图册</h1><p class="palette-count">{{COUNT}} 套配色</p></div>
+    </header>
+    <main>
+      <div class="tabs" role="tablist" aria-label="图册视图" hidden>
+        <button type="button" id="tab-surfaces" role="tab" aria-selected="true" aria-controls="panel-surfaces" data-mode="surfaces">配色示例</button>
+        <button type="button" id="tab-cards" role="tab" aria-selected="false" aria-controls="panel-cards" tabindex="-1" data-mode="cards">数字色卡</button>
+        <button type="button" id="tab-schematics" role="tab" aria-selected="false" aria-controls="panel-schematics" tabindex="-1" data-mode="schematics">极简示意图</button>
+      </div>
+      <section id="panel-surfaces" aria-labelledby="heading-surfaces" data-mode="surfaces">
+        <h2 id="heading-surfaces" class="fallback-title">配色示例</h2>
+        <div class="grid">
+{{SURFACES_TILES}}
+        </div>
+      </section>
+      <section id="panel-cards" aria-labelledby="heading-cards" data-mode="cards">
+        <h2 id="heading-cards" class="fallback-title">数字色卡</h2>
+        <div class="grid">
+{{CARDS_TILES}}
+        </div>
+      </section>
+      <section id="panel-schematics" aria-labelledby="heading-schematics" data-mode="schematics">
+        <h2 id="heading-schematics" class="fallback-title">极简示意图</h2>
+        <div class="grid">
+{{SCHEMATICS_TILES}}
+        </div>
+      </section>
+    </main>
+  </div>
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer-body">
+      <div class="viewer-head">
+        <h2 id="viewer-title" aria-live="polite"></h2>
+        <button class="control" type="button" id="close" autofocus>关闭</button>
+      </div>
+      <img class="viewer-image" id="viewer-image" alt="">
+      <div class="viewer-foot">
+        <div class="viewer-files">
+          <label class="mode-selector">视图
+            <select class="control" id="viewer-mode" aria-label="当前配色的视图"></select>
+          </label>
+          <a class="open-original" id="original" target="_blank" rel="noopener">打开 SVG <span aria-hidden="true">↗</span></a>
+          <a class="open-original" id="original-png" target="_blank" rel="noopener" hidden>打开 PNG <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="pager" aria-label="切换配色">
+          <button class="control" id="previous" type="button">上一个</button>
+          <span class="position" id="position"></span>
+          <button class="control" id="next" type="button">下一个</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  <script>
+    (() => {
+      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll('main section[data-mode]'));
+      const viewer = document.getElementById('viewer');
+      const image = document.getElementById('viewer-image');
+      const viewerMode = document.getElementById('viewer-mode');
+      let mode = tabs[0].dataset.mode;
+      let index = 0;
+
+      function chooseMode(key) {
+        mode = key;
+        for (const tab of tabs) {
+          const active = tab.dataset.mode === mode;
+          tab.setAttribute('aria-selected', String(active));
+          tab.tabIndex = active ? 0 : -1;
+        }
+        for (const panel of panels) {
+          panel.hidden = panel.dataset.mode !== mode;
+          panel.setAttribute('role', 'tabpanel');
+          panel.setAttribute('aria-labelledby', 'tab-' + panel.dataset.mode);
+        }
+      }
+      function tiles() {
+        return document.querySelectorAll('#panel-' + mode + ' .tile');
+      }
+      function modeLabel(key) {
+        return document.getElementById('tab-' + key).textContent;
+      }
+      function renderViewer() {
+        const entries = tiles();
+        const tile = entries[index];
+        const src = tile.querySelector('.svg-source').getAttribute('href');
+        const title = tile.dataset.number + ' 号 · ' + tile.dataset.name;
+        const label = title + ' · ' + modeLabel(mode);
+        document.getElementById('viewer-title').textContent = title;
+        image.alt = label;
+        image.src = src;
+        document.getElementById('original').setAttribute('href', src);
+        document.getElementById('original').setAttribute('aria-label', '用新标签页打开' + label + '的 SVG');
+        const pngLink = document.getElementById('original-png');
+        const pngFile = tile.querySelector('.png-source');
+        pngLink.hidden = !pngFile;
+        if (pngFile) {
+          pngLink.setAttribute('href', pngFile.getAttribute('href'));
+          pngLink.setAttribute('aria-label', pngFile.getAttribute('aria-label'));
+        } else {
+          pngLink.removeAttribute('href');
+          pngLink.removeAttribute('aria-label');
+        }
+        viewerMode.value = mode;
+        document.getElementById('position').textContent = (index + 1) + ' / ' + entries.length;
+      }
+      function move(direction) {
+        index = (index + direction + tiles().length) % tiles().length;
+        renderViewer();
+      }
+
+      for (const [i, tab] of tabs.entries()) {
+        viewerMode.add(new Option(tab.textContent, tab.dataset.mode));
+        tab.addEventListener('click', () => chooseMode(tab.dataset.mode));
+        tab.addEventListener('keydown', event => {
+          const directions = { ArrowLeft: -1, ArrowRight: 1 };
+          let target;
+          if (event.key in directions) target = (i + directions[event.key] + tabs.length) % tabs.length;
+          else if (event.key === 'Home') target = 0;
+          else if (event.key === 'End') target = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          chooseMode(tabs[target].dataset.mode);
+          tabs[target].focus();
+        });
+      }
+      for (const panel of panels) {
+        for (const [i, link] of Array.from(panel.querySelectorAll('.preview')).entries()) {
+          link.addEventListener('click', event => {
+            if (event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey ||
+                typeof viewer.showModal !== 'function') return;
+            event.preventDefault();
+            index = i;
+            renderViewer();
+            viewer.showModal();
+          });
+        }
+      }
+      viewer.addEventListener('keydown', event => {
+        if (event.target === viewerMode) return;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          move(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      });
+      viewer.addEventListener('click', event => {
+        if (event.target !== viewer) return;
+        const { left, right, top, bottom } = viewer.getBoundingClientRect();
+        if (event.clientX < left || event.clientX > right || event.clientY < top || event.clientY > bottom) viewer.close();
+      });
+      viewer.addEventListener('close', () => tiles()[index].querySelector('.preview').focus());
+      document.getElementById('previous').addEventListener('click', () => move(-1));
+      document.getElementById('next').addEventListener('click', () => move(1));
+      viewerMode.addEventListener('change', () => {
+        chooseMode(viewerMode.value);
+        renderViewer();
+      });
+      document.getElementById('close').addEventListener('click', () => viewer.close());
+      chooseMode(mode);
+      document.documentElement.classList.add('enhanced');
+      document.querySelector('[role="tablist"]').hidden = false;
+    })();
+  </script>
+</body>
+</html>
+
